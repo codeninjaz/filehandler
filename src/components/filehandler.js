@@ -9,7 +9,8 @@ export default class Filehandler extends React.Component {
         width: 300,
         height: 200,
         backgroundColor: '#9BEEFF'
-      }
+      },
+      maxFileSize: 100000
     }
   }
   render() {

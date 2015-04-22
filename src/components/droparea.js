@@ -13,18 +13,19 @@ export default class Droparea extends React.Component {
     e.preventDefault();
   }
   handleDrop(e) {
+    var self = this;
     e.stopPropagation();
     e.preventDefault();
     var droppedFiles = e.dataTransfer.files;
     var infotext = '';
     _.each(droppedFiles, function(file) {
-      infotext += '\n' + file.name + ': ' + file.size + 'b';
+      if (file.size <= self.props.settings.maxFileSize) {
+        infotext += '\n' + file.name + ': ' + file.size + 'b';
+      }
     });
     this.setState({
       info: infotext
     });
-    console.log(e.type + ': e', e);
-    console.log('files', e.dataTransfer.files);
   }
   render() {
     return (
