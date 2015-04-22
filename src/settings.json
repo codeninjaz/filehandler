@@ -1,0 +1,8 @@
+{
+  "style": {
+    "height": "200px",
+    "backgroundColor": "#9BEEFF"
+  },
+  "maxFileSize": 102400,
+  "allowedFileExtensions": ["pdf", "doc", "jpg", "png", "gif"]
+}

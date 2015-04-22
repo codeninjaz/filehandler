@@ -6,7 +6,7 @@ var words = 'Lebowski ipsum donny was a good bowler, and a good man. He was… H
 var allWords = words.split(' ');
 
 var getRandom = function(min, max) {
-return Math.round(Math.random() * (max - min) + min);
+    return Math.round(Math.random() * (max - min) + min);
 };
 
 var getAWord = function() {
@@ -17,7 +17,7 @@ var getDescription = function() {
     var max = getRandom(10, allWords.length - 1);
     var sentence = [];
     for (var n = 0; n < max; n++) {
-    sentence.push(allWords[n]);
+        sentence.push(allWords[n]);
     }
     return sentence.join(' ');
 };

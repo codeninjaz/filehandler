@@ -6,9 +6,9 @@ module.exports = {
     //Delar upp genererad js i två filer, en för tredjeparts moduler (vendor) och en för min kod (app)
     entry: {
         app: [
-            'webpack-dev-server/client?http://localhost:8090',
-            'webpack/hot/dev-server',
-            './src/app.js'
+        'webpack-dev-server/client?http://localhost:8090',
+        'webpack/hot/dev-server',
+        './src/app.js'
         ],
         vendor: ['react']
     },
@@ -49,24 +49,25 @@ module.exports = {
         }]
     },
     //Kolla på dessa filtyper (osäker på vad denna gör :) )
-    resolve: {
-        extensions: ['', '.js', '.jsx']
-    },
-    node: {
-        fs: "empty"
-    },
-    //Ladda plugins till webpack
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
-        new HtmlWebpackPlugin({
-            title: 'Calendar test',
-            template: 'src/index.html',
-            assets: {
-                'app': 'app.js',
-                'vendor': 'vendor.js'
-            }
-        })
+resolve: {
+    extensions: ['', '.js', '.jsx']
+},
+node: {
+    fs: "empty"
+},
+  //Ladda plugins till webpack
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.IgnorePlugin(/vertx/),
+    new     HtmlWebpackPlugin({
+        title: 'Calendar test',
+        template: 'src/index.html',
+        assets: {
+            'app': 'app.js',
+            'vendor': 'vendor.js'
+        }
+    })
     ]
 };

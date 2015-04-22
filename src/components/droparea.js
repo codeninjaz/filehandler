@@ -2,6 +2,7 @@ import React from 'react';
 import FileInfo from './fileinfo';
 import Util from '../helpers/util';
 import _ from 'lodash';
+import Settings from '../settings.json';
 
 export default class Droparea extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class Droparea extends React.Component {
     e.preventDefault();
     var droppedFiles = [];
     _.each(e.dataTransfer.files, function(file) {
-      if (file.size <= self.props.settings.maxFileSize) {
+      if (file.size <= Settings.maxFileSize) {
         droppedFiles.push(file);
       }
     });
@@ -41,9 +42,9 @@ export default class Droparea extends React.Component {
           )
       });
     }
-    var divStyle = this.props.settings.style;
+    var divStyle = Settings.style;
     divStyle.overflow = 'auto';
-    var kbSize = Util.toOneDecimal(this.props.settings.maxFileSize / 1024);
+    var kbSize = Util.toOneDecimal(Settings.maxFileSize / 1024);
     return (
       <div style      ={divStyle}
            onDragOver ={this.handleDragOver.bind(this)}
