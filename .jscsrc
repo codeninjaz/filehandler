@@ -1,4 +1,4 @@
 {
-	"preset": "crockford",
+	"preset": "google",
 	"esprima": "esprima-fb"
 }
