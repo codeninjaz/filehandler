@@ -1,23 +1,23 @@
 import React from 'react';
 import Droparea from './droparea';
+import Filetree from './filetree';
 
 export default class Filehandler extends React.Component {
   constructor(props) {
     super(props);
     this.dropSettings = {
       style: {
-        width: 300,
-        height: 200,
+        height: '200px',
         backgroundColor: '#9BEEFF'
       },
-      maxFileSize: 100000
+      maxFileSize: 100 * 1024
     }
   }
   render() {
    return (
     <div>
-      <span>Filehandler</span>
       <Droparea settings={this.dropSettings} />
+      <Filetree />
     </div>
     );
  }

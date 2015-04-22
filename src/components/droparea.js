@@ -1,4 +1,6 @@
 import React from 'react';
+import FileInfo from './fileinfo';
+import Util from '../helpers/util';
 import _ from 'lodash';
 
 export default class Droparea extends React.Component {
@@ -12,27 +14,46 @@ export default class Droparea extends React.Component {
     e.stopPropagation();
     e.preventDefault();
   }
+
   handleDrop(e) {
     var self = this;
     e.stopPropagation();
     e.preventDefault();
-    var droppedFiles = e.dataTransfer.files;
-    var infotext = '';
-    _.each(droppedFiles, function(file) {
+    var droppedFiles = [];
+    _.each(e.dataTransfer.files, function(file) {
       if (file.size <= self.props.settings.maxFileSize) {
-        infotext += '\n' + file.name + ': ' + file.size + 'b';
+        droppedFiles.push(file);
       }
     });
     this.setState({
-      info: infotext
+      files: droppedFiles
     });
   }
   render() {
+    var self      = this;
+    var fileCells = [];
+    var droppedInfo   = null;
+    if (this.state.files) {
+      droppedInfo = <span>Släppte: {this.state.files.length} filer<br/></span>
+      _.each(this.state.files, function(file, i) {
+        fileCells.push(
+            <FileInfo key={i} file={file} />
+          )
+      });
+    }
+    var divStyle = this.props.settings.style;
+    divStyle.overflow = 'auto';
+    var kbSize = Util.toOneDecimal(this.props.settings.maxFileSize / 1024);
     return (
-      <div style={this.props.settings.style}
-      onDragOver={this.handleDragOver.bind(this)}
-      onDrop={this.handleDrop.bind(this)}>
-      Droparea: {this.state.info}
+      <div style      ={divStyle}
+           onDragOver ={this.handleDragOver.bind(this)}
+           onDrop     ={this.handleDrop.bind(this)}>
+        Släpp filer här<br/>
+        Max {kbSize} KiB per fil<br/>
+        {droppedInfo}
+        <table>
+          {fileCells}
+        </table>
       </div>
       );
   }
