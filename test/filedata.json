@@ -1,39 +1,65 @@
 [
-  {
-    "name":"dir1",
-    "type":"dir",
-    "files":[
-      {
-        "name":"file1.txt",
-        "type":"text",
-        "size":12300
-      },
-      {
-        "name":"file2.txt",
-        "type":"text",
-        "size":13200
-      },
-      {
-        "name":"file3.jpg",
-        "type":"image",
-        "size":871263
-      }
-    ]
-  },
-  {
-    "name":"dir2",
-    "type":"dir",
-    "files":[
-      {
-        "name":"asdas.pdf",
-        "type":"pdf",
-        "size":12300
-      },
-      {
-        "name":"asdaswww.pdf",
-        "type":"pdf",
-        "size":12893761
-      }
-    ]
-  }
+    {
+        "name": "dir1",
+        "type": "dir",
+        "level": 0,
+        "items": [
+            {
+                "name": "file1.txt",
+                "type": "text",
+                "size": 12300,
+                "level": 1
+            },
+            {
+                "name": "file2.txt",
+                "type": "text",
+                "size": 13200,
+                "level": 1
+            },
+            {
+                "name": "file3.jpg",
+                "type": "image",
+                "size": 871263,
+                "level": 1
+            }
+        ]
+    },
+    {
+        "name": "filer",
+        "type": "dir",
+        "level": 0,
+        "items": [
+            {
+                "name": "asdas.pdf",
+                "type": "pdf",
+                "size": 12300,
+                "level": 1
+            },
+            {
+                "name": "asdaswww.pdf",
+                "type": "pdf",
+                "size": 12893761,
+                "level": 1
+            },
+            {
+                "name": "kat",
+                "type": "dir",
+                "level": 1,
+                "items": [
+                    {
+                        "name": "ioysagd.doc",
+                        "type": "doc",
+                        "size": 1283761,
+                        "level": 2
+                    },
+                    {
+                        "name": "werwer.exe",
+                        "type": "exe",
+                        "size": 193761,
+                        "level": 2
+                    }
+                ]
+            }
+        ]
+    }
 ]

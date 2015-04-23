@@ -1,0 +1,5 @@
+module.exports = {
+  GET_FILETREE_DATA: 'GET_FILETREE_DATA',
+  PENDING: 'PENDING',
+  ERROR: 'ERROR'
+};

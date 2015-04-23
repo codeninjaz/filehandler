@@ -1,6 +1,6 @@
 import React from 'react';
 import Droparea from './droparea';
-import Filetree from './filetree';
+import FiletreeController from './filetreectrl';
 import Settings from '../settings.json';
 
 export default class Filehandler extends React.Component {
@@ -11,7 +11,7 @@ export default class Filehandler extends React.Component {
    return (
     <div>
       <Droparea />
-      <Filetree />
+      <FiletreeController />
     </div>
     );
  }

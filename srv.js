@@ -3,14 +3,14 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 
 new WebpackDevServer(webpack(config), {
-    publicPath: config.output.publicPath,
-    hot: true,
-    historyApiFallback: true,
-    colors: true
+  publicPath: config.output.publicPath,
+  hot: true,
+  historyApiFallback: true,
+  colors: true
 }).listen(8090, 'localhost', function(err) {
-    if(err) {
-        console.log(err);
-    }
+  if (err) {
+    console.log(err);
+  }
 
-    console.log('Listening at localhost:8090');
+  console.log('Listening at localhost:8090');
 });
