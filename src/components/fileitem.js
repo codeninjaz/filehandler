@@ -14,6 +14,18 @@ export default class Fileitem extends React.Component {
       showChildren: !this.state.showChildren
     })
   }
+  handleDragOver(e) {
+    e.preventDefault();
+  }
+  handleDragStart(info, e) {
+    e.dataTransfer.setData('application/json', JSON.stringify(info));
+    console.log('e', e);
+  }
+  handleDrop(info, e) {
+    var obj = JSON.parse(e.dataTransfer.getData('application/json'));
+    console.log('e.dataTransfer', obj);
+    console.log('dropped on info', info);
+  }
   getIndent(style) {
     style.paddingLeft = this.props.info.level * 10 + 'px';
   }
@@ -32,10 +44,15 @@ export default class Fileitem extends React.Component {
     let info = this.props.info;
     let divStyle = {
       cursor:'pointer',
-      backgroundColor: info.type === 'dir' ? '#93E4FF' : '#D9FF93'
+      backgroundColor: info.type === 'dir' ? '#FFFDAE' : '#D9FF93'
     };
     return (
-      <div style={divStyle} onClick={this.handleClick.bind(this)}>
+      <div draggable={true} style={divStyle}
+           onClick={this.handleClick.bind(this)}
+           onDragStart={this.handleDragStart.bind(this, info)}
+           onDragOver={this.handleDragOver.bind(this)}
+           onDrop={this.handleDrop.bind(this, info)}
+           >
         {this.getIndent(divStyle)}
         {info.name}: {info.type === 'dir' ? info.items.length : null}
         {this.state.showChildren ? this.renderChildren(info) : null}
