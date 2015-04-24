@@ -2,22 +2,26 @@
     {
         "name": "dir1",
         "type": "dir",
+        "path": "/",
         "level": 0,
         "items": [
             {
                 "name": "file1.txt",
+                "path": "/dir1/",
                 "type": "text",
                 "size": 12300,
                 "level": 1
             },
             {
                 "name": "file2.txt",
+                "path": "/dir1/",
                 "type": "text",
                 "size": 13200,
                 "level": 1
             },
             {
                 "name": "file3.jpg",
+                "path": "/dir1/",
                 "type": "image",
                 "size": 871263,
                 "level": 1
@@ -26,34 +30,40 @@
     },
     {
         "name": "filer",
+        "path": "/",
         "type": "dir",
         "level": 0,
         "items": [
             {
                 "name": "asdas.pdf",
+                "path": "/filer/",
                 "type": "pdf",
                 "size": 12300,
                 "level": 1
             },
             {
                 "name": "asdaswww.pdf",
+                "path": "/filer/",
                 "type": "pdf",
                 "size": 12893761,
                 "level": 1
             },
             {
                 "name": "kat",
+                "path": "/filer/",
                 "type": "dir",
                 "level": 1,
                 "items": [
                     {
                         "name": "ioysagd.doc",
+                        "path": "/filer/kat/",
                         "type": "doc",
                         "size": 1283761,
                         "level": 2
                     },
                     {
                         "name": "werwer.exe",
+                        "path": "/filer/kat/",
                         "type": "exe",
                         "size": 193761,
                         "level": 2

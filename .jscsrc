@@ -1,4 +1,7 @@
 {
-	"preset": "google",
-	"esprima": "esprima-fb"
+  "preset": "google",
+  "esnext" : true,
+  "esprima": "esprima-fb",
+  "esprimaOptions" : {"tolerant":false},
+  "maximumLineLength": 120
 }

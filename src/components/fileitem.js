@@ -1,4 +1,6 @@
 import React from 'react';
+import Settings from '../settings.json';
+import TreeActions from '../data/treeactions';
 
 export default class Fileitem extends React.Component {
   constructor(props) {
@@ -9,21 +11,37 @@ export default class Fileitem extends React.Component {
   }
   handleClick(e) {
     e.stopPropagation();
-    console.log(this.props.info.name + ' clicked');
+    console.log('this.props.info', this.props.info);
     this.setState({
       showChildren: !this.state.showChildren
     })
   }
   handleDragOver(e) {
     e.preventDefault();
+    e.stopPropagation();
   }
   handleDragStart(info, e) {
+    e.preventDefault();
+    e.stopPropagation();
     e.dataTransfer.setData('application/json', JSON.stringify(info));
     console.log('e', e);
   }
   handleDrop(info, e) {
-    var obj = JSON.parse(e.dataTransfer.getData('application/json'));
-    console.log('e.dataTransfer', obj);
+    e.preventDefault();
+    e.stopPropagation();
+    var droppedFiles = [];
+    if (e.dataTransfer.files) {
+      _.each(e.dataTransfer.files, function(file) {
+        if (file.size <= Settings.maxFileSize) {
+          droppedFiles.push(file);
+        }
+      });
+      TreeActions.addFiles(droppedFiles, info);
+    } else {
+      var obj = JSON.parse(e.dataTransfer.getData('application/json'));
+      console.log('obj', obj);
+    }
+    console.log('droppedFiles', droppedFiles);
     console.log('dropped on info', info);
   }
   getIndent(style) {
@@ -32,9 +50,9 @@ export default class Fileitem extends React.Component {
   renderChildren(item) {
     let children = [];
     if (item.items && item.items.length > 0) {
-      _.forEach(item.items, function(child) {
+      _.forEach(item.items, function(child, i) {
         children.push(
-          <Fileitem info={child}/>
+          <Fileitem key={i} info={child}/>
         );
       });
     }

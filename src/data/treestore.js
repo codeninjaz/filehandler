@@ -1,9 +1,30 @@
 import McFly from 'McFly';
 import Const from './fluxconstants';
+import _ from 'lodash';
 
 let Flux = new McFly();
 let items = [];
 let status = 'Init';
+
+function fn(obj, key) {
+  // or just (key in obj)
+  if (_.has(obj, key)) {
+    return [obj];
+  }
+  // elegant:
+  return _.flatten(_.map(obj, function(v) {
+    return typeof v == 'object' ? fn(v, key) : [];
+  }), true);
+
+  // or efficient:
+  // var res = [];
+  // _.forEach(obj, function(v) {
+  //   if (typeof v == 'object' && (v = fn(v, key)).length) {
+  //     res.push.apply(res, v);
+  //   }
+  // });
+  //return res;
+}
 
 var TreeStore = Flux.createStore(
   {
@@ -20,6 +41,20 @@ var TreeStore = Flux.createStore(
       case Const.GET_FILETREE_DATA:
         items = payload.data;
         status = Const.GET_FILETREE_DATA;
+        TreeStore.emitChange();
+      break;
+      case Const.ADD_FILETREE_DATA:
+        payload.files;
+        console.log('payload.files', payload.files);
+        status = Const.ADD_FILETREE_DATA;
+        let foundItem = fn(items, payload.node.name)
+        console.log('foundItem', foundItem);
+        if (payload.node.type === 'dir') {
+          
+        } else {
+
+        }
+        //Add files to treedata at selected node
         TreeStore.emitChange();
       break;
       case Const.PENDING:

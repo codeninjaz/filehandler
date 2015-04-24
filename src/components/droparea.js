@@ -1,8 +1,8 @@
 import React from 'react';
-import FileInfo from './fileinfo';
-import Util from '../helpers/util';
 import _ from 'lodash';
+import Util from '../helpers/util';
 import Settings from '../settings.json';
+import FileInfo from './fileinfo';
 
 export default class Droparea extends React.Component {
   constructor(props) {
@@ -17,7 +17,6 @@ export default class Droparea extends React.Component {
   }
 
   handleDrop(e) {
-    var self = this;
     e.stopPropagation();
     e.preventDefault();
     var droppedFiles = [];
@@ -31,9 +30,9 @@ export default class Droparea extends React.Component {
     });
   }
   render() {
-    var self      = this;
-    var fileCells = [];
-    var droppedInfo   = null;
+    var self        = this;
+    var fileCells   = [];
+    var droppedInfo = null;
     if (this.state.files) {
       droppedInfo = <span>Släppte: {this.state.files.length} filer<br/></span>
       _.each(this.state.files, function(file, i) {
@@ -46,9 +45,9 @@ export default class Droparea extends React.Component {
     divStyle.overflow = 'auto';
     var kbSize = Util.toOneDecimal(Settings.maxFileSize / 1024);
     return (
-      <div style      ={divStyle}
-           onDragOver ={this.handleDragOver.bind(this)}
-           onDrop     ={this.handleDrop.bind(this)}>
+      <div style      = {divStyle}
+           onDragOver = {this.handleDragOver.bind(this)}
+           onDrop     = {this.handleDrop.bind(this)}>
         Släpp filer här<br/>
         Max {kbSize} KiB per fil<br/>
         {droppedInfo}
