@@ -26,10 +26,10 @@ export default class Fileitem extends React.Component {
     e.dataTransfer.setData('application/json', JSON.stringify(info));
   }
   handleDrop(info, e) {
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
     var droppedFiles = [];
-    if (e.dataTransfer.files) { //Droppade filer
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) { //Droppade filer
       _.each(e.dataTransfer.files, function(file) {
         if (file.size <= Settings.maxFileSize) {
           droppedFiles.push(file);
@@ -37,7 +37,10 @@ export default class Fileitem extends React.Component {
       });
       TreeActions.addFiles(droppedFiles, info);
     } else { //Droppade något annat än filer
-      var obj = JSON.parse(e.dataTransfer.getData('application/json'));
+      var movedItem = JSON.parse(e.dataTransfer.getData('application/json'));
+      console.log('info', info);
+      console.log('movedItem', movedItem);
+      TreeActions.moveFiles(movedItem, info);
     }
   }
   getIndent(style) {

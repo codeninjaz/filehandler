@@ -13,5 +13,12 @@ export default Flux.createActions({
       files: files,
       node: node
     }
+  },
+  moveFiles: function(movedItems, target) {
+    return {
+      actionType: Const.MOVE_FILETREE_DATA,
+      movedItems: movedItems,
+      target: target
+    }
   }
 });

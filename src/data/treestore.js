@@ -31,9 +31,6 @@ function getExtension(name) {
 
 function addFiles(files, item) {
   if (files && item) {
-    console.log('files', files);
-    console.log('item', item);
-    console.log('item.items', item.items);
     _.forEach(files, function(file) {
       item.items.push(
         {
@@ -49,6 +46,19 @@ function addFiles(files, item) {
   }
 }
 
+function moveFiles(movedItems, target) {
+  console.log('movedItems', movedItems);
+  console.log('target', target);
+  if (movedItems && target) {
+    foundItem = {};
+    if (target.type === 'dir') {
+      findInTree(items, target.id);
+    } else {
+      findInTree(items, target.parent);
+    }
+    foundItem.items.push(movedItems);
+  }
+}
 /*
   "name"  : "file1.txt",
   "id"    : "9161c41e-7e44-48ce-9e6e-9d6aadad40f9",
@@ -77,18 +87,21 @@ var TreeStore = Flux.createStore(
         TreeStore.emitChange();
       break;
       case Const.ADD_FILETREE_DATA:
-        payload.files;
         status = Const.ADD_FILETREE_DATA;
         if (payload.node.type === 'dir') {
-          console.log('Treestore: Filer släppta på katalog');
           findInTree(items, payload.node.id);
           addFiles(payload.files, foundItem);
         } else {
-          console.log('Treestore: Filer släppta på fil');
           findInTree(items, payload.node.parent);
           addFiles(payload.files, foundItem);
         }
         //Add files to treedata at selected node
+        TreeStore.emitChange();
+      break;
+      case Const.MOVE_FILETREE_DATA:
+        status = Const.MOVE_FILETREE_DATA;
+        findInTree(items, payload.target.id);
+        moveFiles(payload.movedItems, foundItem);
         TreeStore.emitChange();
       break;
       case Const.PENDING:
