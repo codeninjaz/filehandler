@@ -11,6 +11,7 @@ export default class Fileitem extends React.Component {
   }
   handleClick(e) {
     e.stopPropagation();
+    console.log('this', this);
     this.setState({
       showChildren: !this.state.showChildren
     })
@@ -67,7 +68,7 @@ export default class Fileitem extends React.Component {
            onDrop={this.handleDrop.bind(this, info)}
            >
         {this.getIndent(divStyle)}
-        {info.name}: {info.type === 'dir' ? info.items.length : null}
+        {info.name}: {info.id}
         {this.state.showChildren ? this.renderChildren(info) : null}
       </div>
     );

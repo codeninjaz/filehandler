@@ -1,72 +1,92 @@
 [
     {
-        "name": "dir1",
-        "type": "dir",
-        "path": "/",
-        "level": 0,
-        "items": [
+        "name"  : "dir1",
+        "id"    : "2532baab-ff32-4f41-8a3c-fbcdf9a9060a",
+        "parent": "",
+        "type"  : "dir",
+        "path"  : "/",
+        "level" : 0,
+        "items" : [
             {
-                "name": "file1.txt",
-                "path": "/dir1/",
-                "type": "text",
-                "size": 12300,
-                "level": 1
+                "name"  : "file1.txt",
+                "id"    : "9161c41e-7e44-48ce-9e6e-9d6aadad40f9",
+                "parent": "2532baab-ff32-4f41-8a3c-fbcdf9a9060a",
+                "path"  : "/dir1/",
+                "type"  : "text",
+                "size"  : 12300,
+                "level" : 1
             },
             {
-                "name": "file2.txt",
-                "path": "/dir1/",
-                "type": "text",
-                "size": 13200,
-                "level": 1
+                "name"  : "file2.txt",
+                "id"    : "0d11a147-1bff-4ffa-863f-737b16df2994",
+                "parent": "2532baab-ff32-4f41-8a3c-fbcdf9a9060a",
+                "path"  : "/dir1/",
+                "type"  : "text",
+                "size"  : 13200,
+                "level" : 1
             },
             {
-                "name": "file3.jpg",
-                "path": "/dir1/",
-                "type": "image",
-                "size": 871263,
-                "level": 1
+                "name"  : "file3.jpg",
+                "id"    : "a22521ad-c2c7-4c0a-a430-396a4bcd556b",
+                "parent": "2532baab-ff32-4f41-8a3c-fbcdf9a9060a",
+                "path"  : "/dir1/",
+                "type"  : "image",
+                "size"  : 871263,
+                "level" : 1
             }
         ]
     },
     {
-        "name": "filer",
-        "path": "/",
-        "type": "dir",
-        "level": 0,
-        "items": [
+        "name"  : "filer",
+        "id"    : "4fc5b1c7-e357-4dfb-ba74-bd625230ed4c",
+        "parent": "",
+        "path"  : "/",
+        "type"  : "dir",
+        "level" : 0,
+        "items" : [
             {
-                "name": "asdas.pdf",
-                "path": "/filer/",
-                "type": "pdf",
-                "size": 12300,
-                "level": 1
+                "name"  : "asdas.pdf",
+                "id"    : "c83e80eb-1da3-403f-aad1-b2255b0498ea",
+                "parent": "4fc5b1c7-e357-4dfb-ba74-bd625230ed4c",
+                "path"  : "/filer/",
+                "type"  : "pdf",
+                "size"  : 12300,
+                "level" : 1
             },
             {
-                "name": "asdaswww.pdf",
-                "path": "/filer/",
-                "type": "pdf",
-                "size": 12893761,
-                "level": 1
+                "name"  : "asdaswww.pdf",
+                "id"    : "cd3ecd77-fb26-478a-a645-9ea337742526",
+                "parent": "4fc5b1c7-e357-4dfb-ba74-bd625230ed4c",
+                "path"  : "/filer/",
+                "type"  : "pdf",
+                "size"  : 12893761,
+                "level" : 1
             },
             {
-                "name": "kat",
-                "path": "/filer/",
-                "type": "dir",
-                "level": 1,
-                "items": [
+                "name"  : "kat",
+                "id"    : "e7125bcd-01b4-4969-ab5a-91dfd974c4ad",
+                "parent": "4fc5b1c7-e357-4dfb-ba74-bd625230ed4c",
+                "path"  : "/filer/",
+                "type"  : "dir",
+                "level" : 1,
+                "items" : [
                     {
-                        "name": "ioysagd.doc",
-                        "path": "/filer/kat/",
-                        "type": "doc",
-                        "size": 1283761,
-                        "level": 2
+                        "name"  : "ioysagd.doc",
+                        "id"    : "44616b09-8ad0-4a84-86a0-93d48b2d5656",
+                        "parent": "e7125bcd-01b4-4969-ab5a-91dfd974c4ad",
+                        "path"  : "/filer/kat/",
+                        "type"  : "doc",
+                        "size"  : 1283761,
+                        "level" : 2
                     },
                     {
-                        "name": "werwer.exe",
-                        "path": "/filer/kat/",
-                        "type": "exe",
-                        "size": 193761,
-                        "level": 2
+                        "name"  : "werwer.exe",
+                        "id"    : "f2117971-6ee7-4ab1-a735-219ab4a730f0",
+                        "parent": "e7125bcd-01b4-4969-ab5a-91dfd974c4ad",
+                        "path"  : "/filer/kat/",
+                        "type"  : "exe",
+                        "size"  : 193761,
+                        "level" : 2
                     }
                 ]
             }
