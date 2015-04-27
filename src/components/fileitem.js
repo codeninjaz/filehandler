@@ -11,7 +11,6 @@ export default class Fileitem extends React.Component {
   }
   handleClick(e) {
     e.stopPropagation();
-    console.log('this.props.info', this.props.info);
     this.setState({
       showChildren: !this.state.showChildren
     })
@@ -21,28 +20,24 @@ export default class Fileitem extends React.Component {
     e.stopPropagation();
   }
   handleDragStart(info, e) {
-    e.preventDefault();
+    //e.preventDefault();
     e.stopPropagation();
     e.dataTransfer.setData('application/json', JSON.stringify(info));
-    console.log('e', e);
   }
   handleDrop(info, e) {
     e.preventDefault();
     e.stopPropagation();
     var droppedFiles = [];
-    if (e.dataTransfer.files) {
+    if (e.dataTransfer.files) { //Droppade filer
       _.each(e.dataTransfer.files, function(file) {
         if (file.size <= Settings.maxFileSize) {
           droppedFiles.push(file);
         }
       });
       TreeActions.addFiles(droppedFiles, info);
-    } else {
+    } else { //Droppade något annat än filer
       var obj = JSON.parse(e.dataTransfer.getData('application/json'));
-      console.log('obj', obj);
     }
-    console.log('droppedFiles', droppedFiles);
-    console.log('dropped on info', info);
   }
   getIndent(style) {
     style.paddingLeft = this.props.info.level * 10 + 'px';

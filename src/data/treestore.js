@@ -6,24 +6,13 @@ let Flux = new McFly();
 let items = [];
 let status = 'Init';
 
-function fn(obj, key) {
-  // or just (key in obj)
-  if (_.has(obj, key)) {
-    return [obj];
+function findInTree(tree, name) {
+  console.log('tree.items', tree ? tree.items : '----');
+  if (tree) {
+    _.forEach(tree, function(item) {
+      findInTree(item.items, '');
+    });
   }
-  // elegant:
-  return _.flatten(_.map(obj, function(v) {
-    return typeof v == 'object' ? fn(v, key) : [];
-  }), true);
-
-  // or efficient:
-  // var res = [];
-  // _.forEach(obj, function(v) {
-  //   if (typeof v == 'object' && (v = fn(v, key)).length) {
-  //     res.push.apply(res, v);
-  //   }
-  // });
-  //return res;
 }
 
 var TreeStore = Flux.createStore(
@@ -45,14 +34,13 @@ var TreeStore = Flux.createStore(
       break;
       case Const.ADD_FILETREE_DATA:
         payload.files;
-        console.log('payload.files', payload.files);
         status = Const.ADD_FILETREE_DATA;
-        let foundItem = fn(items, payload.node.name)
+        let foundItem = findInTree(items, payload.node.name)
         console.log('foundItem', foundItem);
         if (payload.node.type === 'dir') {
-          
+          console.log('Treestore: Filer droppade på katalog');
         } else {
-
+          console.log('Treestore: Filer droppade på fil');
         }
         //Add files to treedata at selected node
         TreeStore.emitChange();

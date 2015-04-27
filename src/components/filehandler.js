@@ -10,7 +10,6 @@ export default class Filehandler extends React.Component {
   render() {
    return (
     <div>
-      <Droparea />
       <FiletreeController />
     </div>
     );
