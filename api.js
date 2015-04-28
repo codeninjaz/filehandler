@@ -10,11 +10,23 @@ function sleep(milliseconds) {
   }
 }
 
-function respond(req, res, next) {
+function getFiles(req, res, next) {
   //Simulate delay
   //sleep(8000);
   res.cache('no-cache');
   res.send(Data);
+  next();
+}
+
+function addFiles(req, res, next) {
+  res.send(Data);
+  console.log('req', req);
+  next();
+}
+
+function moveFile(req, res, next) {
+  res.send(Data);
+  console.log('req', req);
   next();
 }
 
@@ -28,8 +40,10 @@ server.use(
   }
 );
 
-server.get('/filedata', respond);
-//server.head('/filedata', respond);
+server.get('/filedata', getFiles);
+server.post('/movefile', moveFile);
+server.post('/addfile', addFiles);
+// server.get('/deletefile', deleteFile);
 
 server.listen(8099, function() {
   console.log('%s listening at %s', server.name, server.url);

@@ -1,6 +1,16 @@
 import React from 'react';
 import Settings from '../settings.json';
-import TreeActions from '../data/treeactions';
+import API from '../data/apicom';
+
+function getExtension(filename) {
+  let result = ''
+  let myregexp = /[.](.*)/im;
+  let match = myregexp.exec(filename);
+  if (match != null) {
+    result = match[1];
+  }
+  return result;
+}
 
 export default class Fileitem extends React.Component {
   constructor(props) {
@@ -21,26 +31,32 @@ export default class Fileitem extends React.Component {
     e.stopPropagation();
   }
   handleDragStart(info, e) {
-    //e.preventDefault();
     e.stopPropagation();
     e.dataTransfer.setData('application/json', JSON.stringify(info));
   }
   handleDrop(info, e) {
-    // e.preventDefault();
-    e.stopPropagation();
-    var droppedFiles = [];
+    var keptFiles = [];
+    var skippedFiles = [];
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) { //Droppade filer
+      console.log('e.dataTransfer.files', e.dataTransfer.files);
+      e.preventDefault();
+      e.stopPropagation();
       _.each(e.dataTransfer.files, function(file) {
-        if (file.size <= Settings.maxFileSize) {
-          droppedFiles.push(file);
+        if (file.size > Settings.maxFileSize) {
+          file.reason = 'size';
+          skippedFiles.push(file);
+        } else if (!_.includes(Settings.allowedFileExtensions, getExtension(file.name))) {
+          file.reason = 'type';
+          skippedFiles.push(file);
+        } else {
+          keptFiles.push(file);
         }
       });
-      TreeActions.addFiles(droppedFiles, info);
+      API.addFile(keptFiles, skippedFiles, info);
     } else { //Droppade något annat än filer
+      e.stopPropagation();
       var movedItem = JSON.parse(e.dataTransfer.getData('application/json'));
-      console.log('info', info);
-      console.log('movedItem', movedItem);
-      TreeActions.moveFiles(movedItem, info);
+      API.moveFile(movedItem, info)
     }
   }
   getIndent(style) {
@@ -48,8 +64,8 @@ export default class Fileitem extends React.Component {
   }
   renderChildren(item) {
     let children = [];
-    if (item.items && item.items.length > 0) {
-      _.forEach(item.items, function(child, i) {
+    if (item.children && item.children.length > 0) {
+      _.forEach(item.children, function(child, i) {
         children.push(
           <Fileitem key={i} info={child}/>
         );

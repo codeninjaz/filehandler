@@ -4,5 +4,6 @@
     "backgroundColor": "#9BEEFF"
   },
   "maxFileSize": 102400,
-  "allowedFileExtensions": ["pdf", "doc", "jpg", "png", "gif"]
+  "allowedFileExtensions": ["pdf", "doc", "jpg", "png", "gif"],
+  "apiUrlBase": "http://localhost:8099/"
 }

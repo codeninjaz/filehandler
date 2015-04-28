@@ -20,7 +20,7 @@ export default class Filetree extends React.Component {
           </div>
         )
     } else {
-      _.forEach(this.props.treedata, function(item, index) {
+      _.forEach(this.props.treedata.children, function(item, index) {
         items.push(
             <li key={index}>
               <Fileitem info={item} showChildren={true}/>
