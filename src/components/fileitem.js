@@ -1,16 +1,8 @@
 import React from 'react';
 import Settings from '../settings.json';
 import API from '../data/apicom';
-
-function getExtension(filename) {
-  let result = ''
-  let myregexp = /[.](.*)/im;
-  let match = myregexp.exec(filename);
-  if (match != null) {
-    result = match[1];
-  }
-  return result;
-}
+import Util from '../helpers/util';
+import FileInfo from './fileinfo'
 
 export default class Fileitem extends React.Component {
   constructor(props) {
@@ -45,7 +37,7 @@ export default class Fileitem extends React.Component {
         if (file.size > Settings.maxFileSize) {
           file.reason = 'size';
           skippedFiles.push(file);
-        } else if (!_.includes(Settings.allowedFileExtensions, getExtension(file.name))) {
+        } else if (!_.includes(Settings.allowedFileExtensions, Util.getExtension(file.name))) {
           file.reason = 'type';
           skippedFiles.push(file);
         } else {
@@ -76,8 +68,7 @@ export default class Fileitem extends React.Component {
   render() {
     let info = this.props.info;
     let divStyle = {
-      cursor:'pointer',
-      backgroundColor: info.type === 'dir' ? '#FFFDAE' : '#D9FF93'
+      cursor:'pointer'
     };
     return (
       <div draggable={true} style={divStyle}
@@ -87,7 +78,7 @@ export default class Fileitem extends React.Component {
            onDrop={this.handleDrop.bind(this, info)}
            >
         {this.getIndent(divStyle)}
-        {info.name}: {info.id}
+        <FileInfo file={info} open={this.state.showChildren}/>
         {this.state.showChildren ? this.renderChildren(info) : null}
       </div>
     );
