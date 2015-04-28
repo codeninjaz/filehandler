@@ -40,21 +40,23 @@ var getAType = function getAType() {
 };
 
 var generateItems = function generateItems(mother) {
-  var numChildren = getRandom(0, 10);
+  var numChildren = getRandom(0, 20);
   for (var i = 0; i < numChildren; i++) {
+    var _name = getAWord();
     var theType = getAType();
     var item = {
-      name: getAWord(),
+      name: _name + '.' + theType,
       id: _uuid2['default'].v4(),
       parentId: mother.id,
       type: theType,
-      size: theType === 'dir' ? 0 : getRandom(100, 100000),
-      level: mother.level + 1,
+      size: getRandom(100, 100000),
       children: []
     };
     mother.children.push(item);
     if (numChildren > 0) {
       mother.type = 'dir';
+      mother.size = 0;
+      mother.name = _name;
     }
   }
 };
@@ -65,20 +67,24 @@ var root = {
   id: 1,
   parentId: '',
   type: 'root',
-  level: 0,
   children: []
 };
 
+var n = 1;
 generateItems(root);
 _import2['default'].forEach(root.children, function (child) {
+  n += 1;
   generateItems(child);
   _import2['default'].forEach(child.children, function (child) {
+    n += 1;
     generateItems(child);
     _import2['default'].forEach(child.children, function (child) {
+      n += 1;
       generateItems(child);
     });
   });
 });
+console.log('Genererade ', n);
 _FS2['default'].writeFile(filename, JSON.stringify(root, null, '\t'), function (err) {
   if (err) {
     throw err;

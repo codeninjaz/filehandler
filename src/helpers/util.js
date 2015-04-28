@@ -15,7 +15,7 @@ export default {
     return result;
   },
   getFileIcon(file) {
-    let ext = this.getExtension(file.name);
+    let ext = file.type;
     if (!ext) {ext = 'default';}
     let res = _.find(Settings.fileIcons, function(icon) {
       return _.includes(icon.types, ext);

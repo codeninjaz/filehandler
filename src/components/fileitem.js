@@ -52,7 +52,7 @@ export default class Fileitem extends React.Component {
     }
   }
   getIndent(style) {
-    style.paddingLeft = (this.props.info.level - 1) * this.props.padding + 'px';
+    style.paddingLeft = this.props.padding + 'px';
   }
   renderChildren(item) {
     let self = this;
