@@ -1,33 +1,11 @@
 import _ from 'lodash';
-
-let iconLookup = [
-  {
-    types:['png', 'gif', 'jpg'],
-    icon:'file-image-o'
-  },
-  {
-    types:['doc'],
-    icon:'file-word-o'
-  },
-  {
-    types:['pdf'],
-    icon:'file-pdf-o'
-  },
-  {
-    types:['folder'],
-    icon:'folder-o'
-  },
-  {
-    types:['txt'],
-    icon:'file-o'
-  },
-]
+import Settings from '../settings.json';
 
 export default {
-  toOneDecimal: function(num) {
+  toOneDecimal(num) {
     return Math.round(num * 10) / 10;
   },
-  getExtension: function(filename) {
+  getExtension(filename) {
     let result = ''
     let myregexp = /[.](.*)/im;
     let match = myregexp.exec(filename);
@@ -36,19 +14,19 @@ export default {
     }
     return result;
   },
-  getIcon(file) {
-    if (file.type === 'dir') {
-      return 'folder-o';
-    }
+  getFileIcon(file) {
     let ext = this.getExtension(file.name);
-    console.log('ext', ext);
     if (!ext) {ext = 'default';}
-    let res = _.find(iconLookup, function(icon) {
+    let res = _.find(Settings.fileIcons, function(icon) {
       return _.includes(icon.types, ext);
     });
     if (res) {
       return res.icon;
+    } else {
+      return Settings.genericFileIcon;
     }
-    return '/images/icon_' + ext + '.png';
+  },
+  isSelected(item, selectedItem) {
+    return item.id === selectedItem.id;
   }
 }

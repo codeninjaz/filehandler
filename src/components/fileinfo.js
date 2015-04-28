@@ -1,5 +1,7 @@
+//Visar den inre informationen per fil.
 import React from 'react';
 import Util from '../helpers/util';
+import Settings from '../settings.json';
 
 export default class Fileinfo extends React.Component {
   constructor(props) {
@@ -7,8 +9,10 @@ export default class Fileinfo extends React.Component {
   }
 
   render() {
-    var file = this.props.file;
-    var open = this.props.open;
+    let file = this.props.file;
+    let open = this.props.open;
+    let selected = this.props.selected;
+
     function getData() {
       return file.size > 0 ? ' - ' + Util.toOneDecimal(file.size / 1024) + 'KiB' : null
     }
@@ -16,15 +20,20 @@ export default class Fileinfo extends React.Component {
       let self = this;
       if (file.type === 'dir') {
         if (open) {
-          return 'folder-open-o'
+          return Settings.openFolderIcon;
         }else {
-          return 'folder-o'
+          return Settings.folderIcon;
         }
       }
-      return Util.getIcon(file)
+      return Util.getFileIcon(file)
+    }
+    function getStyle() {
+      return ({
+        fontWeight: selected ? 'bold' : 'normal'
+      });
     }
     return (
-            <span>
+            <span style={getStyle()}>
               <i className={'fa fa-' + getIcon(file)} />
               <span> {file.name}{getData()}</span>
             </span>

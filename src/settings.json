@@ -5,5 +5,54 @@
   },
   "maxFileSize": 102400,
   "allowedFileExtensions": ["pdf", "doc", "jpg", "png", "gif"],
-  "apiUrlBase": "http://localhost:8099/"
+  "apiUrlBase": "http://localhost:8099/",
+  "genericFileIcon": "file-o",
+  "folderIcon": "folder-o",
+  "openFolderIcon": "folder-open-o",
+  "fileIcons":[
+    {
+      "types":["png", "gif", "jpg"],
+      "icon":"file-image-o"
+    },
+    {
+      "types":["pdf"],
+      "icon":"file-pdf-o"
+    },
+    {
+      "types":["zip", "lha", "gz", "7z"],
+      "icon":"file-archive-o"
+    },
+    {
+      "types":["avi", "mwv", "mp4", "mov"],
+      "icon":"file-video-o"
+    },
+    {
+      "types":["txt"],
+      "icon":"file-text-o"
+    },
+    {
+      "types":["js", "cs", "html"],
+      "icon":"file-code-o"
+    },
+    {
+      "types":["mp3", "aif"],
+      "icon":"file-audio-o"
+    },
+    {
+      "types":["doc", "docx"],
+      "icon":"file-word-o"
+    },
+    {
+      "types":["xls", "xlsx"],
+      "icon":"file-excel-o"
+    },
+    {
+      "types":["ppt", "pptx"],
+      "icon":"file-powerpoint-o"
+    },
+    {
+      "types":["default"],
+      "icon":"file-o"
+    }
+  ]
 }

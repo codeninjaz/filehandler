@@ -30,7 +30,7 @@ export default class FiletreeCtrl extends React.Component {
   }
   render() {
     return (
-      <FileTree treedata={this.state.treedata} status={this.state.status} />
+      <FileTree treedata={this.state.treedata} selectedItem={this.state.selectedItem} status={this.state.status} />
     );
   }
 }

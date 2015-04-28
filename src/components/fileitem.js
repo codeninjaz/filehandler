@@ -1,6 +1,7 @@
 import React from 'react';
 import Settings from '../settings.json';
 import API from '../data/apicom';
+import Actions from '../data/treeactions';
 import Util from '../helpers/util';
 import FileInfo from './fileinfo'
 
@@ -13,7 +14,7 @@ export default class Fileitem extends React.Component {
   }
   handleClick(e) {
     e.stopPropagation();
-    console.log('this', this);
+    Actions.selectItem(this.props.info);
     this.setState({
       showChildren: !this.state.showChildren
     })
@@ -30,14 +31,13 @@ export default class Fileitem extends React.Component {
     var keptFiles = [];
     var skippedFiles = [];
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) { //Droppade filer
-      console.log('e.dataTransfer.files', e.dataTransfer.files);
       e.preventDefault();
       e.stopPropagation();
       _.each(e.dataTransfer.files, function(file) {
         if (file.size > Settings.maxFileSize) {
           file.reason = 'size';
           skippedFiles.push(file);
-        } else if (!_.includes(Settings.allowedFileExtensions, Util.getExtension(file.name))) {
+        } else if (!_.includes(Settings.allowedFileExtensions, file.type)) {
           file.reason = 'type';
           skippedFiles.push(file);
         } else {
@@ -52,14 +52,15 @@ export default class Fileitem extends React.Component {
     }
   }
   getIndent(style) {
-    style.paddingLeft = this.props.info.level * 10 + 'px';
+    style.paddingLeft = (this.props.info.level - 1) * this.props.padding + 'px';
   }
   renderChildren(item) {
+    let self = this;
     let children = [];
     if (item.children && item.children.length > 0) {
       _.forEach(item.children, function(child, i) {
         children.push(
-          <Fileitem key={i} info={child}/>
+          <Fileitem key={i} padding={self.props.padding} selectedItem={self.props.selectedItem} info={child}/>
         );
       });
     }
@@ -67,6 +68,7 @@ export default class Fileitem extends React.Component {
   }
   render() {
     let info = this.props.info;
+    let isSelected = Util.isSelected(info, this.props.selectedItem);
     let divStyle = {
       cursor:'pointer'
     };
@@ -78,7 +80,7 @@ export default class Fileitem extends React.Component {
            onDrop={this.handleDrop.bind(this, info)}
            >
         {this.getIndent(divStyle)}
-        <FileInfo file={info} open={this.state.showChildren}/>
+        <FileInfo file={info} open={this.state.showChildren} selected={isSelected} />
         {this.state.showChildren ? this.renderChildren(info) : null}
       </div>
     );

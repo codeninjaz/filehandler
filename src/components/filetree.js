@@ -12,7 +12,8 @@ export default class Filetree extends React.Component {
     API.getApiData();
   }
   getTree() {
-    var items = [];
+    let items = [];
+    let self = this;
     if (this.props.status === Const.ERROR) {
       return (
           <div style={{backgroundColor: 'red'}}>
@@ -23,7 +24,7 @@ export default class Filetree extends React.Component {
       _.forEach(this.props.treedata.children, function(item, index) {
         items.push(
             <li key={index}>
-              <Fileitem info={item} showChildren={true}/>
+              <Fileitem info={item} padding={15} selectedItem={self.props.selectedItem} showChildren={true}/>
             </li>
           )
       });
