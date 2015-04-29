@@ -15,7 +15,7 @@ export default class Fileinfo extends React.Component {
 
   getFileTools(file, tools) {
     return (
-      <FileTools file={file} tools={tools}/>
+      <FileTools file={file} tools={tools} nameInput = {this.refs.nameInput}/>
     );
   }
 
@@ -31,6 +31,19 @@ export default class Fileinfo extends React.Component {
     if (e.key === 'Enter') {
       Actions.doneEditing(this.state.file);
     }
+  }
+
+  setFocus() {
+    if (this.props.editing) {
+      let inp = React.findDOMNode(this.refs.nameInput);
+      if (inp) {
+        inp.focus();
+      }
+    }
+  }
+
+  componentDidUpdate(){
+    this.setFocus();
   }
 
   render() {
@@ -61,10 +74,6 @@ export default class Fileinfo extends React.Component {
       return ({});
     }
     if (editing) {
-      let inp = React.findDOMNode(this.refs.nameInput);
-      if (inp) {
-        inp.focus();
-      }
       return (
         <span style={getEditStyle()}>
           <i className={'fa fa-' + getIcon(file)} />
@@ -73,8 +82,7 @@ export default class Fileinfo extends React.Component {
             type='text'
             value={file.name}
             onChange={this.handleEdit.bind(this)}
-            onKeyPress={this.handleKeyPress.bind(this)}>
-          </input>
+            onKeyPress={this.handleKeyPress.bind(this)} />
           {this.getFileTools(file, {done: true})}
         </span>
       )

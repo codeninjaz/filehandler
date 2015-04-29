@@ -60,7 +60,6 @@ export default class Fileitem extends React.Component {
     //Rendera underliggande barn
     let self     = this;
     let children = [];
-    let opened   = _.includes(this.props.openFolders, item.id);
     if (item.children && item.children.length > 0) {
       _.forEach(item.children, function(child, i) {
         children.push(
@@ -80,7 +79,7 @@ export default class Fileitem extends React.Component {
   render() {
     let info       = this.props.info;
     let isSelected = Util.isSelected(info, this.props.selectedItem);
-    let editMode = this.props.editItem.id === info.id;
+    let editMode   = this.props.editItem.id === info.id;
     let divStyle   = {
       cursor:'pointer'
     };
