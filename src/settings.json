@@ -1,58 +1,63 @@
 {
   "style": {
-    "height": "200px",
-    "backgroundColor": "#9BEEFF"
+    "height"          : "200px",
+    "backgroundColor" : "#9BEEFF"
   },
-  "maxFileSize": 102400,
-  "allowedFileExtensions": ["pdf", "doc", "jpg", "png", "gif"],
-  "apiUrlBase": "http://localhost:8099/",
-  "genericFileIcon": "file-o",
-  "folderIcon": "folder-o",
-  "openFolderIcon": "folder-open-o",
+  "maxFileSize"           : 102400,
+  "allowedFileExtensions" : ["pdf", "doc", "jpg", "png", "gif"],
+  "apiUrlBase"            : "http://localhost:8099/",
+  "genericFileIcon"       : "file-o",
+  "folderIcon"            : "folder-o",
+  "openFolderIcon"        : "folder-open-o",
   "fileIcons":[
     {
-      "types":["png", "gif", "jpg"],
-      "icon":"file-image-o"
+      "types" :["png", "gif", "jpg"],
+      "icon"  :"file-image-o"
     },
     {
-      "types":["pdf"],
-      "icon":"file-pdf-o"
+      "types" :["pdf"],
+      "icon"  :"file-pdf-o"
     },
     {
-      "types":["zip", "lha", "gz", "7z"],
-      "icon":"file-archive-o"
+      "types" :["zip", "lha", "gz", "7z"],
+      "icon"  :"file-archive-o"
     },
     {
-      "types":["avi", "mwv", "mp4", "mov"],
-      "icon":"file-video-o"
+      "types" :["avi", "mwv", "mp4", "mov"],
+      "icon"  :"file-video-o"
     },
     {
-      "types":["txt"],
-      "icon":"file-text-o"
+      "types" :["txt"],
+      "icon"  :"file-text-o"
     },
     {
-      "types":["js", "cs", "html"],
-      "icon":"file-code-o"
+      "types" :["js", "cs", "html"],
+      "icon"  :"file-code-o"
     },
     {
-      "types":["mp3", "aif"],
-      "icon":"file-audio-o"
+      "types" :["mp3", "aif"],
+      "icon"  :"file-audio-o"
     },
     {
-      "types":["doc", "docx"],
-      "icon":"file-word-o"
+      "types" :["doc", "docx"],
+      "icon"  :"file-word-o"
     },
     {
-      "types":["xls", "xlsx"],
-      "icon":"file-excel-o"
+      "types" :["xls", "xlsx"],
+      "icon"  :"file-excel-o"
     },
     {
-      "types":["ppt", "pptx"],
-      "icon":"file-powerpoint-o"
+      "types" :["ppt", "pptx"],
+      "icon"  :"file-powerpoint-o"
     },
     {
-      "types":["default"],
-      "icon":"file-o"
+      "types" :["default"],
+      "icon"  :"file-o"
     }
-  ]
+  ],
+  "toolIcon" : {
+    "edit"   : "pencil",
+    "delete" : "trash-o",
+    "done"   : "check"
+  }
 }

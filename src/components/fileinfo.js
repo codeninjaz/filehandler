@@ -1,23 +1,48 @@
 //Visar den inre informationen per fil.
-import React from 'react';
-import Util from '../helpers/util';
-import Settings from '../settings.json';
+import React     from 'react';
+import Util      from '../helpers/util';
+import Settings  from '../settings.json';
+import FileTools from './filetools';
+import Actions  from '../data/treeactions';
 
 export default class Fileinfo extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      file: this.props.file
+    }
+  }
+
+  getFileTools(file, tools) {
+    return (
+      <FileTools file={file} tools={tools}/>
+    );
+  }
+
+  handleEdit(e) {
+    let f = this.state.file;
+    f.name = e.target.value;
+    this.setState({
+      file: f
+    })
+  }
+
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      Actions.doneEditing(this.state.file);
+    }
   }
 
   render() {
-    let file = this.props.file;
-    let open = this.props.open;
+    let file     = this.state.file;
+    let open     = this.props.open;
     let selected = this.props.selected;
+    let editing  = this.props.editing;
 
     function getData() {
       return file.size > 0 ? ' - ' + Util.toOneDecimal(file.size / 1024) + 'KiB' : null
     }
     function getIcon() {
-      let self = this;
       if (file.type === 'dir') {
         if (open) {
           return Settings.openFolderIcon;
@@ -29,14 +54,38 @@ export default class Fileinfo extends React.Component {
     }
     function getStyle() {
       return ({
-        fontWeight: selected ? 'bold' : 'normal'
+        fontWeight: selected ? 'bold' : 'normal',
       });
     }
-    return (
-            <span style={getStyle()}>
-              <i className={'fa fa-' + getIcon(file)} />
-              <span> {file.name}{getData()}</span>
-            </span>
-    );
+    function getEditStyle() {
+      return ({});
+    }
+    if (editing) {
+      let inp = React.findDOMNode(this.refs.nameInput);
+      if (inp) {
+        inp.focus();
+      }
+      return (
+        <span style={getEditStyle()}>
+          <i className={'fa fa-' + getIcon(file)} />
+          <input
+            ref='nameInput'
+            type='text'
+            value={file.name}
+            onChange={this.handleEdit.bind(this)}
+            onKeyPress={this.handleKeyPress.bind(this)}>
+          </input>
+          {this.getFileTools(file, {done: true})}
+        </span>
+      )
+    } else {
+      return (
+        <span style={getStyle()}>
+          <i className={'fa fa-' + getIcon(file)} />
+          <span> {file.name}{getData()}</span>
+          {selected && file.type !== 'dir' ? this.getFileTools(file, {edit: true, delete: true}) : null}
+        </span>
+      );
+    }
   }
 }

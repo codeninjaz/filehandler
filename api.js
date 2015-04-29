@@ -20,25 +20,20 @@ function getFiles(req, res, next) {
 
 function addFiles(req, res, next) {
   res.send(Data);
-  console.log('req', req);
   next();
 }
 
 function moveFile(req, res, next) {
   res.send(Data);
-  console.log('req', req);
   next();
 }
 
 var server = Restify.createServer();
+
 //Cross origin
-server.use(
-  function crossOrigin(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-    return next();
-  }
-);
+server.use(Restify.CORS({
+  headers: ['X-Requested-With']
+}));
 
 server.get('/filedata', getFiles);
 server.post('/movefile', moveFile);

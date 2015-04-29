@@ -1,6 +1,6 @@
-import React from 'react';
-import Settings from '../settings.json';
-import Droparea from './droparea';
+import React              from 'react';
+import Settings           from '../settings.json';
+import Droparea           from './droparea';
 import FiletreeController from './filetreectrl';
 
 export default class Filehandler extends React.Component {

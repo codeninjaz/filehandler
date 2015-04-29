@@ -9,8 +9,32 @@ export default Flux.createActions({
   },
   selectItem: function(file) {
     return {
-      file: file,
+      file      : file,
       actionType: Const.SELECTED_ITEM
+    }
+  },
+  openFolder: function(id) {
+    return {
+      id        : id,
+      actionType: Const.FOLDER_OPENED
+    }
+  },
+  closeFolder: function(id) {
+    return {
+      id        : id,
+      actionType: Const.FOLDER_CLOSED
+    }
+  },
+  setEditmode(item) {
+    return {
+      item       : item,
+      actionType : Const.EDITMODE
+    }
+  },
+  doneEditing(item) {
+    return {
+      item       : item,
+      actionType : Const.DONEEDITING
     }
   }
 });

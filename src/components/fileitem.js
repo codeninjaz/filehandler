@@ -1,23 +1,25 @@
-import React from 'react';
+import React    from 'react';
 import Settings from '../settings.json';
-import API from '../data/apicom';
-import Actions from '../data/treeactions';
-import Util from '../helpers/util';
+import API      from '../data/apicom';
+import Actions  from '../data/treeactions';
+import Util     from '../helpers/util';
 import FileInfo from './fileinfo'
 
 export default class Fileitem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showChildren: props.showChildren
-    }
+  }
+  isOpen(info) {
+    return _.includes(this.props.openFolders, this.props.info.id)
   }
   handleClick(e) {
     e.stopPropagation();
     Actions.selectItem(this.props.info);
-    this.setState({
-      showChildren: !this.state.showChildren
-    })
+    if (this.isOpen()) {
+      Actions.closeFolder(this.props.info.id);
+    } else {
+      Actions.openFolder(this.props.info.id);
+    }
   }
   handleDragOver(e) {
     e.preventDefault();
@@ -55,34 +57,54 @@ export default class Fileitem extends React.Component {
     style.paddingLeft = this.props.padding + 'px';
   }
   renderChildren(item) {
-    let self = this;
+    //Rendera underliggande barn
+    let self     = this;
     let children = [];
+    let opened   = _.includes(this.props.openFolders, item.id);
     if (item.children && item.children.length > 0) {
       _.forEach(item.children, function(child, i) {
         children.push(
-          <Fileitem key={i} padding={self.props.padding} selectedItem={self.props.selectedItem} info={child}/>
+          <Fileitem
+            key          = {i}
+            info         = {child}
+            padding      = {15}
+            selectedItem = {self.props.selectedItem}
+            openFolders  = {self.props.openFolders}
+            editItem     = {self.props.editItem}
+          />
         );
       });
     }
     return children;
   }
   render() {
-    let info = this.props.info;
+    let info       = this.props.info;
     let isSelected = Util.isSelected(info, this.props.selectedItem);
-    let divStyle = {
+    let editMode = this.props.editItem.id === info.id;
+    let divStyle   = {
       cursor:'pointer'
     };
+    let open = this.isOpen();
     return (
-      <div draggable={true} style={divStyle}
-           onClick={this.handleClick.bind(this)}
-           onDragStart={this.handleDragStart.bind(this, info)}
-           onDragOver={this.handleDragOver.bind(this)}
-           onDrop={this.handleDrop.bind(this, info)}
-           >
-        {this.getIndent(divStyle)}
-        <FileInfo file={info} open={this.state.showChildren} selected={isSelected} />
-        {this.state.showChildren ? this.renderChildren(info) : null}
-      </div>
+      <li>
+        <div
+          draggable   = {true}
+          style       = {divStyle}
+          onClick     = {this.handleClick.bind(this)}
+          onDragStart = {this.handleDragStart.bind(this, info)}
+          onDragOver  = {this.handleDragOver.bind(this)}
+          onDrop      = {this.handleDrop.bind(this, info)}
+          >
+          {this.getIndent(divStyle)}
+          <FileInfo
+            file     = {info}
+            open     = {open}
+            selected = {isSelected}
+            editing  = {editMode}
+          />
+          {open ? this.renderChildren(info) : null}
+        </div>
+      </li>
     );
   }
 }

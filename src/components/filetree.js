@@ -1,8 +1,9 @@
-import React from 'react';
-import Const from '../data/fluxconstants';
-import API from '../data/apicom';
+import React    from 'react';
+import Const    from '../data/fluxconstants';
+import API      from '../data/apicom';
 import Fileitem from './fileitem';
-import _ from 'lodash';
+import InfoBox  from './infobox';
+import _        from 'lodash';
 
 export default class Filetree extends React.Component {
   constructor(props) {
@@ -14,26 +15,33 @@ export default class Filetree extends React.Component {
   getTree() {
     let items = [];
     let self = this;
-    if (this.props.status === Const.ERROR) {
+    if (self.props.status === Const.ERROR) {
       return (
           <div style={{backgroundColor: 'red'}}>
-            ERROR: {this.props.treedata}
+            ERROR: {self.props.treedata}
           </div>
         )
     } else {
-      _.forEach(this.props.treedata.children, function(item, index) {
+      //Rendera rotnivå
+      _.forEach(self.props.treedata.children, function(item, index) {
         items.push(
-            <li key={index}>
-              <Fileitem info={item} padding={15} selectedItem={self.props.selectedItem} showChildren={true}/>
-            </li>
+            <Fileitem
+              key          = {index}
+              info         = {item}
+              padding      = {0}
+              selectedItem = {self.props.selectedItem}
+              openFolders  = {self.props.openFolders}
+              editItem     = {self.props.editItem}
+            />
           )
       });
+      <InfoBox file={self.props.selectedItem} />
       return (
           <div>
-            <ul style={{listStyle:'none'}}>
+            <ul style={{listStyle:'none', padding:0}}>
               {items}
             </ul>
-            <button onClick={this.updateTree.bind(this)}>Uppdatera</button>
+            <button onClick={self.updateTree.bind(self)}>Uppdatera</button>
           </div>
         )
     }

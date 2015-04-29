@@ -1,6 +1,6 @@
-import React from 'react';
-import _ from 'lodash';
-import Util from '../helpers/util';
+import React    from 'react';
+import _        from 'lodash';
+import Util     from '../helpers/util';
 import Settings from '../settings.json';
 import FileInfo from './fileinfo';
 
