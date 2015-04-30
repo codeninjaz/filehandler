@@ -13,15 +13,15 @@ export default Flux.createActions({
       actionType: Const.SELECTED_ITEM
     }
   },
-  openFolder: function(id) {
+  openFolder: function(item) {
     return {
-      id        : id,
+      item        : item,
       actionType: Const.FOLDER_OPENED
     }
   },
-  closeFolder: function(id) {
+  closeFolder: function(item) {
     return {
-      id        : id,
+      item        : item,
       actionType: Const.FOLDER_CLOSED
     }
   },
@@ -29,6 +29,18 @@ export default Flux.createActions({
     return {
       item       : item,
       actionType : Const.EDITMODE
+    }
+  },
+  deleteItem(item) {
+    return {
+      item       : item,
+      actionType : Const.DELETEITEM
+    }
+  },
+  showInfo(item) {
+    return {
+      item       : item,
+      actionType : Const.SHOWINFO
     }
   },
   doneEditing(item) {

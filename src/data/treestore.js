@@ -41,18 +41,12 @@ var TreeStore = Flux.createStore(
         TreeStore.emitChange();
       break;
       case Const.FOLDER_OPENED:
-        if (!_.includes(openFolders, payload.id)) {
-          openFolders.push(payload.id);
-          TreeStore.emitChange();
-        }
+        payload.item.open = true;
+        TreeStore.emitChange();
       break;
       case Const.FOLDER_CLOSED:
-        if (_.includes(openFolders, payload.id)) {
-          _.remove(openFolders, function(id) {
-            return id === payload.id
-          });
-          TreeStore.emitChange();
-        }
+        payload.item.open = false;
+        TreeStore.emitChange();
       break;
       case Const.EDITMODE:
         if (editItem.length > 0 && editItem.id === payload.item.id) {
@@ -64,6 +58,18 @@ var TreeStore = Flux.createStore(
       break;
       case Const.DONEEDITING:
         editItem = {};
+        TreeStore.emitChange();
+      break;
+      case Const.DELETEITEM:
+        payload.item = {};
+        TreeStore.emitChange();
+      break;
+      case Const.SHOWINFO:
+        if (payload.item.showInfo) {
+          payload.item.showInfo = false;
+        } else {
+          payload.item.showInfo = true;
+        }
         TreeStore.emitChange();
       break;
     }

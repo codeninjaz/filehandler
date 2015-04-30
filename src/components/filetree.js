@@ -12,9 +12,6 @@ export default class Filetree extends React.Component {
   updateTree() {
     API.getApiData();
   }
-  handleKeyPress(e) {
-    console.log('Filetree: e', e);
-  }
   getTree() {
     let items = [];
     let self = this;
@@ -33,17 +30,18 @@ export default class Filetree extends React.Component {
               info         = {item}
               padding      = {0}
               selectedItem = {self.props.selectedItem}
-              openFolders  = {self.props.openFolders}
               editItem     = {self.props.editItem}
             />
           )
       });
       <InfoBox file={self.props.selectedItem} />
       return (
-          <div onKeyPress={this.handleKeyPress.bind(this)}>
-            <ul style={{listStyle:'none', padding:0}}>
-              {items}
-            </ul>
+          <div>
+            <div style={{padding:0}}>
+              <ul style={{listStyle:'none', padding:0}}>
+                {items}
+              </ul>
+            </div>
             <button onClick={self.updateTree.bind(self)}>Uppdatera</button>
           </div>
         )

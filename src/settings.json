@@ -58,6 +58,7 @@
   "toolIcon" : {
     "edit"   : "pencil",
     "delete" : "trash-o",
-    "done"   : "check"
+    "done"   : "check",
+    "info"   : "info-circle"
   }
 }

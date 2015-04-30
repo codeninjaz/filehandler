@@ -9,16 +9,13 @@ export default class Fileitem extends React.Component {
   constructor(props) {
     super(props);
   }
-  isOpen(info) {
-    return _.includes(this.props.openFolders, this.props.info.id)
-  }
   handleClick(e) {
     e.stopPropagation();
     Actions.selectItem(this.props.info);
-    if (this.isOpen()) {
-      Actions.closeFolder(this.props.info.id);
+    if (this.props.info.open) {
+      Actions.closeFolder(this.props.info);
     } else {
-      Actions.openFolder(this.props.info.id);
+      Actions.openFolder(this.props.info);
     }
   }
   handleDragOver(e) {
@@ -68,13 +65,16 @@ export default class Fileitem extends React.Component {
             info         = {child}
             padding      = {15}
             selectedItem = {self.props.selectedItem}
-            openFolders  = {self.props.openFolders}
             editItem     = {self.props.editItem}
           />
         );
       });
     }
-    return children;
+    return (
+      <ul style={{listStyle:'none', padding:0}}>
+        {children}
+      </ul>
+    );
   }
   render() {
     let info       = this.props.info;
@@ -83,26 +83,22 @@ export default class Fileitem extends React.Component {
     let divStyle   = {
       cursor:'pointer'
     };
-    let open = this.isOpen();
     return (
-      <li>
-        <div
-          draggable   = {true}
-          style       = {divStyle}
-          onClick     = {this.handleClick.bind(this)}
-          onDragStart = {this.handleDragStart.bind(this, info)}
-          onDragOver  = {this.handleDragOver.bind(this)}
-          onDrop      = {this.handleDrop.bind(this, info)}
-          >
-          {this.getIndent(divStyle)}
-          <FileInfo
-            file     = {info}
-            open     = {open}
-            selected = {isSelected}
-            editing  = {editMode}
-          />
-          {open ? this.renderChildren(info) : null}
-        </div>
+      <li
+        draggable   = {true}
+        style       = {divStyle}
+        onClick     = {this.handleClick.bind(this)}
+        onDragStart = {this.handleDragStart.bind(this, info)}
+        onDragOver  = {this.handleDragOver.bind(this)}
+        onDrop      = {this.handleDrop.bind(this, info)}
+        >
+        {this.getIndent(divStyle)}
+        <FileInfo
+          file     = {info}
+          selected = {isSelected}
+          editing  = {editMode}
+        />
+        {info.open ? this.renderChildren(info) : null}
       </li>
     );
   }

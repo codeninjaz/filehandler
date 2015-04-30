@@ -3,7 +3,8 @@ import React     from 'react';
 import Util      from '../helpers/util';
 import Settings  from '../settings.json';
 import FileTools from './filetools';
-import Actions  from '../data/treeactions';
+import InfoBox   from './infobox';
+import Actions   from '../data/treeactions';
 
 export default class Fileinfo extends React.Component {
   constructor(props) {
@@ -16,6 +17,12 @@ export default class Fileinfo extends React.Component {
   getFileTools(file, tools) {
     return (
       <FileTools file={file} tools={tools} nameInput = {this.refs.nameInput}/>
+    );
+  }
+
+  getInfoBox() {
+    return (
+      <InfoBox file={this.props.file}/>
     );
   }
 
@@ -42,15 +49,16 @@ export default class Fileinfo extends React.Component {
     }
   }
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     this.setFocus();
   }
 
   render() {
     let file     = this.state.file;
-    let open     = this.props.open;
     let selected = this.props.selected;
     let editing  = this.props.editing;
+    let open     = this.props.file.open;
+    let showInfo = this.props.file.showInfo;
 
     function getData() {
       return file.size > 0 ? ' - ' + Util.toOneDecimal(file.size / 1024) + 'KiB' : null
@@ -68,10 +76,13 @@ export default class Fileinfo extends React.Component {
     function getStyle() {
       return ({
         fontWeight: selected ? 'bold' : 'normal',
+        position: 'relative'
       });
     }
     function getEditStyle() {
-      return ({});
+      return ({
+        position: 'relative'
+      });
     }
     if (editing) {
       return (
@@ -91,7 +102,8 @@ export default class Fileinfo extends React.Component {
         <span style={getStyle()}>
           <i className={'fa fa-' + getIcon(file)} />
           <span> {file.name}{getData()}</span>
-          {selected && file.type !== 'dir' ? this.getFileTools(file, {edit: true, delete: true}) : null}
+          {selected ? this.getFileTools(file, {edit: true, delete: true, info: true}) : null}
+          {showInfo ? this.getInfoBox() : null}
         </span>
       );
     }
