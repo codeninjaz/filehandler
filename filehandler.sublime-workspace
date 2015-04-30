@@ -1,0 +1,944 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sub",
+				"subpixel_antialias"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"File",
+				"FileTools"
+			],
+			[
+				"open",
+				"openFolders"
+			],
+			[
+				"chil",
+				"children"
+			],
+			[
+				"gee",
+				"generateItems"
+			],
+			[
+				"gener",
+				"generateItems"
+			],
+			[
+				"fin",
+				"findInTree"
+			],
+			[
+				"move",
+				"movedItem"
+			],
+			[
+				"item",
+				"itemToRemove"
+			],
+			[
+				"fou",
+				"foundItems"
+			],
+			[
+				"dropp",
+				"droppedFiles"
+			],
+			[
+				"handle",
+				"handleDragOver"
+			],
+			[
+				"render",
+				"renderChildren"
+			],
+			[
+				"ch",
+				"children"
+			],
+			[
+				"div",
+				"divStyle"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"res",
+				"Restify"
+			],
+			[
+				"Treea",
+				"TreeActions"
+			],
+			[
+				"Se",
+				"Settings"
+			],
+			[
+				"se",
+				"settings"
+			],
+			[
+				"FileI",
+				"FileInfo"
+			],
+			[
+				"info",
+				"infotext"
+			],
+			[
+				"opt",
+				"opt_options"
+			],
+			[
+				"selLa",
+				"selLayer1"
+			],
+			[
+				"map",
+				"mapSelectItem"
+			],
+			[
+				"la",
+				"layer"
+			],
+			[
+				"ex",
+				"extent"
+			],
+			[
+				"laye",
+				"layers"
+			],
+			[
+				"sh",
+				"showMap"
+			],
+			[
+				"setti",
+				"settings_list"
+			],
+			[
+				"pixel",
+				"pixelProj"
+			],
+			[
+				"proj",
+				"projection"
+			],
+			[
+				"ext",
+				"extent"
+			],
+			[
+				"mapBou",
+				"mapBounds"
+			],
+			[
+				"pro",
+				"projection"
+			],
+			[
+				"Cache",
+				"cacheRead"
+			],
+			[
+				"ass",
+				"assemblyBinding"
+			],
+			[
+				"page",
+				"page-background-url"
+			],
+			[
+				"v",
+				"value"
+			]
+		]
+	},
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"colorp",
+				"Color Picker"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"trai",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"lo",
+				"Convert Case: Lower Case"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"tra",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"tr",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"pc lis",
+				"Package Control: List Packages"
+			],
+			[
+				"guid",
+				"Generate UUID v4"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"jsc",
+				"JSCS Formatter: Format this file"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"",
+				"ChangeQuotes"
+			],
+			[
+				"quo",
+				"ChangeQuotes"
+			],
+			[
+				"re",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"list",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"lint",
+				"Tag: Lint Selection or Document"
+			],
+			[
+				"trail",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"wrap",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"lin",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"w",
+				"Word Wrap: Toggle"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Clear Caches"
+			],
+			[
+				"linte",
+				"SublimeLinter: Clear Caches"
+			],
+			[
+				"synta json",
+				"Set Syntax: JSON"
+			],
+			[
+				"gutter",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"sublimelin",
+				"Preferences: SublimeLint Settings – Default"
+			],
+			[
+				"jsh",
+				"JSHint"
+			],
+			[
+				"con",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"Snippet: clog",
+				"Snippet: console.log()"
+			],
+			[
+				"clog",
+				"Snippet: console.log()"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"toggl",
+				"View: Toggle Menu"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"synta js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"colo",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"se",
+				"Set Syntax: HTML"
+			],
+			[
+				"to",
+				"View: Toggle Menu"
+			],
+			[
+				"tfs",
+				"TFS: Checkin"
+			],
+			[
+				"new",
+				"File: New View into File"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"syntax xml",
+				"Set Syntax: XML"
+			],
+			[
+				"sy",
+				"Set Syntax: Powershell v2"
+			],
+			[
+				"tag",
+				"Tag: Auto-Format Tags on Document"
+			],
+			[
+				"settin",
+				"Preferences: Settings - Default"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"in",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"remop",
+				"Package Control: Remove Package"
+			],
+			[
+				"alignment",
+				"Preferences: Alignment File Settings – Default"
+			],
+			[
+				"ali",
+				"Preferences: Alignment File Settings – User"
+			],
+			[
+				"syn",
+				"Set Syntax: CSS"
+			],
+			[
+				"di",
+				"Set Syntax: Diff"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"toggle",
+				"View: Toggle Menu"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"mini",
+				"Minify Javascript"
+			],
+			[
+				"inde",
+				"Indent JSON"
+			],
+			[
+				"indent",
+				"Indent XML"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"htn",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"open",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 514.0
+	},
+	"console":
+	{
+		"height": 245.0,
+		"history":
+		[
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"node -v",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/prod.sublime-build",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/ColorPicker.sublime-settings",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/ColorPicker/ColorPicker.sublime-settings",
+		"/C/git/filehandler/src/components/filetree.js",
+		"/C/git/filehandler/src/index.html",
+		"/C/git/filehandler/api.js",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/git/filehandler/src/components/fileitem.js",
+		"/C/git/filehandler/src/components/fileinfo.js",
+		"/C/git/filehandler/src/components/filetools.js",
+		"/C/git/filehandler/src/data/treestore.js",
+		"/C/git/filehandler/test/filedata.json",
+		"/C/git/filehandler/test/generate.js",
+		"/C/git/filehandler/src/data/treeactions.js",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
+		"/C/git/filehandler/src/settings.json",
+		"/C/git/filehandler/src/data/fluxconstants.js",
+		"/C/git/filehandler/src/data/apicom.js",
+		"/C/git/filehandler/src/components/infobox.js",
+		"/C/git/filehandler/src/components/filetreectrl.js",
+		"/C/git/filehandler/.jscsrc",
+		"/C/git/filehandler/src/components/filehandler.js",
+		"/C/git/filehandler/src/components/droparea.js",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/C/git/filehandler/test/gen.js",
+		"/C/git/filehandler/test/junkdata.json",
+		"/C/git/filehandler/src/helpers/util.js",
+		"/C/git/filehandler/webpack.config.js",
+		"/C/git/filehandler/.babelrc",
+		"/C/git/filehandler/package.json",
+		"/C/git/filehandler/src/app.js",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/JSCS-Formatter.sublime-settings",
+		"/C/git/filehandler/srv.js",
+		"/C/git/filehandler/src/helpers/constants.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/webpack.config.js",
+		"/C/Users/ansjob/.gitconfig",
+		"/C/git/filehandler/src/data/datastore1.js",
+		"/C/git/filehandler/src/constants.js",
+		"/C/git/filehandler/test/inventory.json",
+		"/C/Users/ansjob/Documents/tblPage.json",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/app.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/components/menu/root.js",
+		"/C/git/Ignobilis/.git/config",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/package.json",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/components/menu/data/menuMockData.json",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/index.html",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/components/menu/data/menuStore.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/components/menu/item.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/components/actionConstants.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/components/menu/menuActions.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/components/root.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/dist/vendor.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/components/controllerview1.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/components/imagelist.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/src/components/renderview2.js",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/srv.js",
+		"/C/git/Ignobilis/.gitignore",
+		"/C/git/Ignobilis/Ignobilis/Static/Ignobilis/Scripts/react/dist/app.js",
+		"/C/git/mapimages/server.js",
+		"/C/git/skidorter/js/app.js",
+		"/C/git/skidorter/.gitignore",
+		"/C/git/skidorter/js/main_2-require.js",
+		"/C/git/skidorter/js/loader.js",
+		"/C/git/skidorter/ol3/ol-deps.js",
+		"/C/git/skidorter/js/jquery-1.8.2.min.js",
+		"/C/git/skidorter/index.html",
+		"/C/git/skidorter/settings.json",
+		"/C/git/skidorter/npm-debug.log",
+		"/C/git/skidorter/js/main_2.js",
+		"/C/git/skidorter/salen/.bowerrc",
+		"/C/git/skidorter/salen/main.js",
+		"/C/git/skidorter/salen/salen_1956/tilemapresource.xml",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/Origami/Default (Windows).sublime-keymap",
+		"/C/git/skidorter/salen/main_2-require.js",
+		"/C/git/skidorter/salen/loader.js",
+		"/C/git/skidorter/.jshintrc",
+		"/C/git/skidorter/ol/ol/format/jsonfeatureformat.js",
+		"/C/git/skidorter/OpenLayers-2.12/OpenLayers.js",
+		"/C/git/skidorter/ol3/ol.js",
+		"/C/git/skidorter/salen/index.html",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/clog.sublime-snippet",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLint.sublime-settings",
+		"/C/git/skidorter/salen/.jshintrc",
+		"/C/git/skidorter/salen/main_2.js",
+		"/C/git/skidorter/js/proj4.js",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/sublimelint/SublimeLint.sublime-settings",
+		"/C/git/skidorter/closure-library/LICENSE",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/Origami/Origami.sublime-settings",
+		"/C/git/skidorter/closure-library/closure/goog/module/testdata/modA_1.js",
+		"/C/git/skidorter/js/modernizr.js",
+		"/C/git/skidorter/css/selectboxes.css",
+		"/C/git/skidorter/salen/esritest-require.js",
+		"/C/git/skidorter/salen/salen1956.jsonp",
+		"/C/Users/ansjob/Downloads/OpenLayersv3.0.0/v3.0.0/examples/loader.js",
+		"/C/Users/ansjob/Downloads/OpenLayersv3.0.0/v3.0.0/examples/kml-earthquakes.html",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Source/InsiktenUtsikten/Views/Shared/Wrappers/_breadcrumb.ascx",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Source/InsiktenUtsikten/Templates/Units/LM_Header.ascx",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Source/InsiktenUtsikten/Views/Shared/Wrappers/_header.ascx",
+		"/C/Users/ansjob/AppData/Roaming/Mozilla/Firefox/Profiles/3zgvqb1q.default/blocklist.xml",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Source/InsiktenUtsikten/Models/ViewModels/IPageViewModel.cs",
+		"/C/Users/ansjob/AppData/Roaming/Mozilla/Firefox/Profiles/3zgvqb1q.default/cert_override.txt",
+		"/C/tmp2/www.mozilla.org.crt",
+		"/C/TFS/Lantmateriet.se/Branches/EPi7Test_lardom/Source/Lantmateriet.se/Styles/font-face.css",
+		"/C/TFS/Lantmateriet.se/Branches/EPi7Test_lardom/Source/Lantmateriet.se/Styles/flexslider.css",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Source/InsiktenUtsikten/Web.config",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Source/InsiktenUtsikten/packages.config",
+		"//epiutv/d$/nuget/Insikten.1.0.3.nuspec",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Source/InsiktenUtsikten/imagevault.client.config",
+		"/C/TFS/Lantmateriet.se/Branches/EPi7Test_lardom/Source/Lantmateriet.se/Styles/styles.css",
+		"/C/TFS/Lantmateriet.se/Branches/EPi7Test_lardom/Source/Lantmateriet.se/Styles/styles.scss",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/packages/repositories.config",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Source/InsiktenUtsikten/InsiktenUtsikten.csproj",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Source/InsiktenUtsikten/packages/repositories.config",
+		"/C/TFS/Lantmateriet.se/Branches/EPi7Test_lardom/Source/Lantmateriet.se/Styles/_settings.scss",
+		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Test/InsiktenUtsikten/InsiktenUnitTests/packages.config",
+		"/C/Users/ansjob/Documents/sensorydata_temperature2.json",
+		"/C/inetpub/Log4Net/lmse_SogetiErrorLog.txt",
+		"/C/inetpub/Log4Net/lmse_EPiServerErrorLog.txt",
+		"//epivere1.lmv.lm.se/d$/Websites/LMSE/rewrites.config",
+		"/C/Windows/System32/npm-debug.log",
+		"/C/TFS/Lantmateriet.se/Main/Source/Lantmateriet.se/EPiServerFramework.config",
+		"//epiprde1.lmv.lm.se/d$/Websites/LMSE/connectionStrings.config",
+		"/C/filer.txt",
+		"/C/oldfiles.txt"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\git\\filehandler\\src",
+			"*.*",
+			"*.js"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"done",
+			"={",
+			"a ",
+			"\\n",
+			",",
+			".",
+			"div",
+			"ul",
+			"open",
+			"id",
+			"getDOMNode",
+			");\n",
+			"editMode",
+			"editing",
+			"delete",
+			"edit",
+			"console.log",
+			"={",
+			"editMode",
+			"div",
+			"item",
+			"openedFolder",
+			"item",
+			"self.props.",
+			"var",
+			"''",
+			"\"",
+			",",
+			"outdoors",
+			",",
+			".",
+			"…",
+			"...",
+			"var",
+			"\n    ",
+			"gotFiletreeData",
+			"types",
+			"pdf",
+			"filename",
+			"icon",
+			"types",
+			"td",
+			"tr",
+			"file",
+			".warn",
+			"info",
+			"http://localhost:8099/",
+			"respond",
+			"var",
+			"extension",
+			"droppedFiles",
+			"failedFiles",
+			"file",
+			"targetDir",
+			"MOVE_FILETREE_DATA",
+			"getApiData",
+			"    {\n        \"name\"    : \"dir1\",\n        \"id\"      : \"2532baab-ff32-4f41-8a3c-fbcdf9a9060a\",\n        \"parentId\": \"\",\n        \"type\"    : \"dir\",\n        \"path\"    : \"/\",\n        \"level\"   : 0,\n        \"children\": [",
+			"items",
+			"\"name",
+			"\"name\"",
+			"                \"name\"  : \"file2.txt\",\n",
+			"\"name\"",
+			"parent",
+			"items",
+			"itemToRemove",
+			"movedItems",
+			"var",
+			"droppade",
+			":",
+			"  :",
+			":",
+			"\"",
+			"foundItems",
+			"findItems",
+			"fn",
+			"\\\\",
+			"\n          ",
+			"item",
+			"GET_FILETREE_DATA",
+			"var",
+			"handleCilck",
+			"Filetree",
+			"div",
+			"fileitems",
+			"Filetree",
+			"getFiletreeData",
+			"inventory",
+			"ADD_TO_CART",
+			"_onChange",
+			"EntityStore",
+			"props.settings",
+			"this.s",
+			":",
+			"dropSettings",
+			",'",
+			"Filehandler",
+			"\\",
+			"displayFiles",
+			"li",
+			"ul",
+			"DnD",
+			"handleDrag",
+			"\n    ",
+			"Filehandler",
+			"_inventory",
+			"-info",
+			"div id",
+			"div",
+			"\\",
+			"vertx",
+			"_inventory",
+			"title",
+			"state",
+			"'",
+			"node",
+			"pubsub",
+			"3000",
+			"8090",
+			"deny",
+			"layer",
+			"\n        ",
+			"layer",
+			"ctx",
+			"namne",
+			"path",
+			"init",
+			":",
+			"'"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			" ",
+			"",
+			"\"",
+			"\\n",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 229.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/Prod.sublime-build",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"actions",
+				"src\\data\\treeactions.js"
+			],
+			[
+				"jshin",
+				".jshintrc"
+			],
+			[
+				"main",
+				"salen\\main_2-require.js"
+			],
+			[
+				"ol-",
+				"ol3\\ol-deps.js"
+			],
+			[
+				"loader",
+				"salen\\loader.js"
+			],
+			[
+				"loade",
+				"salen\\loader.js"
+			],
+			[
+				"esri",
+				"salen\\esritest-require.js"
+			],
+			[
+				"salen",
+				"salen\\salen1956.jsonp"
+			],
+			[
+				"web.",
+				"Web.config"
+			],
+			[
+				"lm_con",
+				"styles\\lm_content.css"
+			],
+			[
+				"css",
+				"LmEditorCss\\ui.css"
+			],
+			[
+				"html",
+				"obj\\Debug\\Package\\PackageTmp\\Extensions\\ProcessMapExtension\\MeridiumLinkEditor\\LinkEditorStarter.html"
+			],
+			[
+				"",
+				"AppSettings.config"
+			],
+			[
+				"edit",
+				"styles\\Editor.css"
+			],
+			[
+				"subl",
+				"C:\\Users\\ansjob\\AppData\\Roaming\\Sublime Text 3\\Packages\\User\\Preferences.sublime-settings"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 296.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

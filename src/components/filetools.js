@@ -25,6 +25,12 @@ export default class Fileinfo extends React.Component {
       break;
     }
   }
+  getStyle(st) {
+    if (this.props.file.showInfo) {
+      st.color = '#2E9954'
+    }
+    return st;
+  }
   render() {
     let editTool = <i
           className = {'fa fa-' + Settings.toolIcon.edit}
@@ -41,7 +47,7 @@ export default class Fileinfo extends React.Component {
           onClick   = {this.handleClick.bind(this, 'done')}
         ></i>
     let infoTool = <i
-          style     = {{paddingLeft:'10px'}}
+          style     = {this.getStyle({paddingLeft:'10px'})}
           className = {'fa fa-' + Settings.toolIcon.info}
           onClick   = {this.handleClick.bind(this, 'info')}
         ></i>
