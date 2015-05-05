@@ -13,5 +13,5 @@ module.exports       = {
   DONEEDITING        : 'DONEEDITING',
   DELETEITEM         : 'DELETEITEM',
   SHOWINFO           : 'SHOWINFO',
-  ADDMODE            : 'ADDMODE'
+  ADDLINKTO          : 'ADDLINKTO'
 };

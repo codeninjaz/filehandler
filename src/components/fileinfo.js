@@ -4,6 +4,7 @@ import Util      from '../helpers/util';
 import Settings  from '../settings.json';
 import FileTools from './filetools';
 import InfoBox   from './infobox';
+import AddLink from './addlink';
 import Actions   from '../data/treeactions';
 
 export default class Fileinfo extends React.Component {
@@ -20,6 +21,11 @@ export default class Fileinfo extends React.Component {
   getInfoBox() {
     return (
       <InfoBox file={this.props.file}/>
+    );
+  }
+  getAddLink() {
+    return (
+      <AddLink file={this.props.file}/>
     );
   }
   handleFolderClick(e) {
@@ -41,12 +47,13 @@ export default class Fileinfo extends React.Component {
     }
   }
   render() {
-    let self     = this;
-    let file     = this.props.file;
-    let selected = Util.isSelected(file, this.props.data.selectedItems);
-    let editing  = this.props.data.editItem ? this.props.data.editItem.id === file.id : false;
-    let open     = this.props.open;
-    let showInfo = this.props.file.showInfo;
+    let self        = this;
+    let file        = this.props.file;
+    let selected    = Util.isSelected(file, this.props.data.selectedItems);
+    let editing     = this.props.data.editItem ? this.props.data.editItem.id === file.id : false;
+    let open        = this.props.open;
+    let showInfo    = this.props.file.showInfo;
+    let showAddLink = this.props.data.addLinkTo === this.props.file;
 
     function getData() {
       return file.size > 0 ? ' - ' + Util.toOneDecimal(file.size / 1024) + 'KiB' : null
@@ -77,12 +84,14 @@ export default class Fileinfo extends React.Component {
       return (
         <span style={getStyle()}>
           <i className={'fa fa-' + Settings.rootIcon} />
-          <span> rot</span>
-          {selected ? this.getFileTools(file, {add:true, info: true}) : null}
+          <span onClick = {this.handleSelect.bind(this)}> rot</span>
+          {selected ? this.getFileTools(file, {sadd:true, info: true}) : null}
           {showInfo ? this.getInfoBox() : null}
+          {showAddLink ? this.getAddLink() : null}
         </span>
       );
     }
+    //Om vi är i redigeringsläge
     if (editing) {
       return (
         <span style={getEditStyle()}>
@@ -91,12 +100,14 @@ export default class Fileinfo extends React.Component {
         </span>
       )
     } else {
+      //Normalfallet
       return (
         <span style={getStyle()}>
           <i className={'fa fa-' + getIcon(file)} onClick = {this.handleFolderClick.bind(this)}/>
           <span onClick = {this.handleSelect.bind(this)}> {file.name}{getData()}</span>
-          {selected ? this.getFileTools(file, {edit: true, delete: true, add:true, info: true}) : null}
+          {selected ? this.getFileTools(file, {edit: true, delete: true, add: this.props.file.type === 'dir', info: true}) : null}
           {showInfo ? this.getInfoBox() : null}
+          {showAddLink ? this.getAddLink() : null}
         </span>
       );
     }

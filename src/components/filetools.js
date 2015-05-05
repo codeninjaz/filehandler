@@ -3,6 +3,7 @@ import Util     from '../helpers/util';
 import Settings from '../settings.json';
 import Actions  from '../data/treeactions';
 import EditBox  from './editbox';
+import AddLink  from './addlink';
 
 export default class FileTools extends React.Component {
   constructor(props) {
@@ -43,7 +44,7 @@ export default class FileTools extends React.Component {
       case 'add':
         e.preventDefault();
         e.stopPropagation();
-        Actions.setAddMode(this.props.file);
+        Actions.addLinkTo(this.props.file);
       break;
     }
   }
@@ -53,9 +54,6 @@ export default class FileTools extends React.Component {
       st.color = '#2E9954'
     }
     return st;
-  }
-
-  componentWillUpdate() {
   }
 
   render() {

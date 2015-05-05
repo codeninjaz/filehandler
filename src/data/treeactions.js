@@ -43,10 +43,10 @@ export default Flux.createActions({
       actionType : Const.EDITMODE
     }
   },
-  setAddMode(item) {
+  addLinkTo(item) {
     return {
       item       : item,
-      actionType : Const.ADDMODE
+      actionType : Const.ADDLINKTO
     }
   },
   deleteItem(item) {

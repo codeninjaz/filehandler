@@ -8,7 +8,7 @@ let treedata      = [];
 let selectedItems = [];
 let openFolders   = [];
 let editItem      = {};
-let addToItem     = {};
+let addLinkTo     = {};
 
 var TreeStore = Flux.createStore(
   {
@@ -19,7 +19,8 @@ var TreeStore = Flux.createStore(
           status        : status,
           selectedItems : selectedItems,
           openFolders   : openFolders,
-          editItem      : editItem
+          editItem      : editItem,
+          addLinkTo     : addLinkTo
         }
       };
     },
@@ -73,11 +74,11 @@ var TreeStore = Flux.createStore(
         editItem = payload.item;
         TreeStore.emitChange();
       break;
-      case Const.ADDMODE:
-        if (addToItem.length > 0 && addToItem.id === payload.item.id) {
-          addToItem = {};
+      case Const.ADDLINKTO:
+        if (addLinkTo === payload.item) {
+          addLinkTo = {};
         } else {
-          addToItem = payload.item;
+          addLinkTo = payload.item;
         }
         TreeStore.emitChange();
       break;
