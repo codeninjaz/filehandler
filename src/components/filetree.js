@@ -10,10 +10,11 @@ export default class Filetree extends React.Component {
     super(props);
   }
   updateTree() {
-    API.getApiData();
+    API.getData();
   }
   getTree() {
     let items = [];
+    let treedata = this.props.treedata;
     let self = this;
     if (self.props.status === Const.ERROR) {
       return (
@@ -23,7 +24,7 @@ export default class Filetree extends React.Component {
         )
     } else {
       //Rendera rotnivå
-      _.forEach(self.props.treedata.children, function(item, index) {
+      _.forEach(treedata.children, function(item, index) {
         items.push(
             <Fileitem
               key          = {index}
@@ -31,6 +32,7 @@ export default class Filetree extends React.Component {
               padding      = {0}
               selectedItem = {self.props.selectedItem}
               editItem     = {self.props.editItem}
+              openFolders         = {self.props.openFolders}
             />
           )
       });
@@ -39,6 +41,13 @@ export default class Filetree extends React.Component {
           <div>
             <div style={{padding:0}}>
               <ul style={{listStyle:'none', padding:0}}>
+                <Fileitem
+                  key          = {'root'}
+                  info         = {treedata}
+                  padding      = {0}
+                  selectedItem = {this.props.selectedItem}
+                  editItem     = {self.props.editItem}
+                />
                 {items}
               </ul>
             </div>

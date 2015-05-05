@@ -31,6 +31,12 @@ export default Flux.createActions({
       actionType : Const.EDITMODE
     }
   },
+  setAddMode(item) {
+    return {
+      item       : item,
+      actionType : Const.ADDMODE
+    }
+  },
   deleteItem(item) {
     return {
       item       : item,

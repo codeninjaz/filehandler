@@ -10,6 +10,7 @@ export default class Fileinfo extends React.Component {
   handleClick(mode, e) {
     switch (mode) {
       case 'edit':
+        e.stopPropagation();
         Actions.setEditmode(this.props.file);
       break;
       case 'delete':
@@ -22,6 +23,11 @@ export default class Fileinfo extends React.Component {
         e.preventDefault();
         e.stopPropagation();
         Actions.showInfo(this.props.file);
+      break;
+      case 'add':
+        e.preventDefault();
+        e.stopPropagation();
+        Actions.setAddMode(this.props.file);
       break;
     }
   }
@@ -51,11 +57,17 @@ export default class Fileinfo extends React.Component {
           className = {'fa fa-' + Settings.toolIcon.info}
           onClick   = {this.handleClick.bind(this, 'info')}
         ></i>
+    let addTool = <i
+          style     = {{paddingLeft:'10px'}}
+          className = {'fa fa-' + Settings.toolIcon.add}
+          onClick   = {this.handleClick.bind(this, 'add')}
+        ></i>
     return (
       <span style={{paddingLeft:'10px'}}>
       {this.props.tools.edit ? editTool : null}
       {this.props.tools.delete ? deleteTool : null}
       {this.props.tools.info ? infoTool : null}
+      {this.props.tools.add ? addTool : null}
       {this.props.tools.done ? doneTool : null}
       </span>
     )

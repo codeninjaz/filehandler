@@ -44,11 +44,20 @@ export default class Droparea extends React.Component {
   render() {
     let self = this;
     let file = this.props.file;
-    return (
-      <div style={self.state.style} onClick={self.handleClick.bind(self)}>
-        <span style={{fontWeight:'bold'}}>{file.name}</span><br/>
-        <span>{[Util.toOneDecimal(file.size / 1024) + 'KiB']}</span>
-      </div>
-    );
+    if (file.parentId) {
+      return (
+        <div style={self.state.style} onClick={self.handleClick.bind(self)}>
+          <span style={{fontWeight:'bold'}}>{file.name}</span><br/>
+          <span>{[Util.toOneDecimal(file.size / 1024) + 'KiB']}</span>
+        </div>
+      );
+    } else {
+      return (
+        <div style={self.state.style} onClick={self.handleClick.bind(self)}>
+          <span style={{fontWeight:'bold'}}>Rot</span><br/>
+          <span>{file.children.length} undersidor</span>
+        </div>
+      );
+    }
   }
 }

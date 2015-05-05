@@ -9,6 +9,7 @@
   "genericFileIcon"       : "file-o",
   "folderIcon"            : "folder-o",
   "openFolderIcon"        : "folder-open-o",
+  "localStorageName"      : "fileListData",
   "fileIcons":[
     {
       "types" :["png", "gif", "jpg"],
@@ -59,6 +60,7 @@
     "edit"   : "pencil",
     "delete" : "trash-o",
     "done"   : "check",
+    "add"   : "plus-square-o",
     "info"   : "info-circle"
   }
 }

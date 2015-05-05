@@ -19,13 +19,14 @@ export default class FiletreeCtrl extends React.Component {
       data: [],
       actionType: Const.PENDING
     });
-    API.getApiData();
+    API.getData();
   }
   componentWillUnmount() {
     TreeStore.removeChangeListener(this.onChange.bind(this));
   }
   onChange() {
     let state = TreeStore.getState();
+    console.log('state', state);
     this.setState(state);
   }
   render() {

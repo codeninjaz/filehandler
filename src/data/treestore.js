@@ -8,7 +8,8 @@ let FileItems    = [];
 let status       = 'Init';
 let selectedItem = {};
 let openFolders  = [];
-let editItem     = {}
+let editItem     = {};
+let addToItem    = {};
 
 var TreeStore = Flux.createStore(
   {
@@ -42,10 +43,14 @@ var TreeStore = Flux.createStore(
       break;
       case Const.FOLDER_OPENED:
         payload.item.open = true;
+        openFolders.push(payload.item.id);
         TreeStore.emitChange();
       break;
       case Const.FOLDER_CLOSED:
         payload.item.open = false;
+        _.remove(openFolders, function(id) {
+          return id === payload.item.id;
+        });
         TreeStore.emitChange();
       break;
       case Const.EDITMODE:
@@ -53,6 +58,14 @@ var TreeStore = Flux.createStore(
           editItem = {};
         } else {
           editItem = payload.item;
+        }
+        TreeStore.emitChange();
+      break;
+      case Const.ADDMODE:
+        if (addToItem.length > 0 && addToItem.id === payload.item.id) {
+          addToItem = {};
+        } else {
+          addToItem = payload.item;
         }
         TreeStore.emitChange();
       break;

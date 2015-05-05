@@ -57,7 +57,7 @@ export default class Fileinfo extends React.Component {
     let file     = this.state.file;
     let selected = this.props.selected;
     let editing  = this.props.editing;
-    let open     = this.props.file.open;
+    let open     = this.props.open;
     let showInfo = this.props.file.showInfo;
 
     function getData() {
@@ -84,6 +84,17 @@ export default class Fileinfo extends React.Component {
         position: 'relative'
       });
     }
+    //Om detta är rotnoden
+    if (!file.parentId) {
+      return (
+        <span style={getStyle()}>
+          <i className={'fa fa-umbrella'} />
+          <span> rot</span>
+          {selected ? this.getFileTools(file, {add:true, info: true}) : null}
+          {showInfo ? this.getInfoBox() : null}
+        </span>
+      );
+    }
     if (editing) {
       return (
         <span style={getEditStyle()}>
@@ -102,7 +113,7 @@ export default class Fileinfo extends React.Component {
         <span style={getStyle()}>
           <i className={'fa fa-' + getIcon(file)} />
           <span> {file.name}{getData()}</span>
-          {selected ? this.getFileTools(file, {edit: true, delete: true, info: true}) : null}
+          {selected ? this.getFileTools(file, {edit: true, delete: true, add:true, info: true}) : null}
           {showInfo ? this.getInfoBox() : null}
         </span>
       );

@@ -12,6 +12,9 @@ export default class Fileitem extends React.Component {
   handleClick(e) {
     e.stopPropagation();
     Actions.selectItem(this.props.info);
+    if (!this.props.info.parentId) {
+      return;
+    }
     if (this.props.info.open) {
       Actions.closeFolder(this.props.info);
     } else {
@@ -53,6 +56,9 @@ export default class Fileitem extends React.Component {
   getIndent(style) {
     style.paddingLeft = this.props.padding + 'px';
   }
+  isOpen() {
+    return _.includes(this.props.openFolders, this.props.info.id);
+  }
   renderChildren(item) {
     //Rendera underliggande barn
     let self     = this;
@@ -66,6 +72,7 @@ export default class Fileitem extends React.Component {
             padding      = {15}
             selectedItem = {self.props.selectedItem}
             editItem     = {self.props.editItem}
+            openFolders  = {self.props.openFolders}
           />
         );
       });
@@ -79,10 +86,11 @@ export default class Fileitem extends React.Component {
   render() {
     let info       = this.props.info;
     let isSelected = Util.isSelected(info, this.props.selectedItem);
-    let editMode   = this.props.editItem.id === info.id;
+    let editMode   = this.props.editItem ? this.props.editItem.id === info.id : false;
     let divStyle   = {
       cursor:'pointer'
     };
+    let open = this.isOpen();
     return (
       <li
         draggable   = {true}
@@ -97,8 +105,10 @@ export default class Fileitem extends React.Component {
           file     = {info}
           selected = {isSelected}
           editing  = {editMode}
+          itemKey  = {'itemKey'}
+          open     = {open}
         />
-        {info.open ? this.renderChildren(info) : null}
+        {open ? this.renderChildren(info) : null}
       </li>
     );
   }

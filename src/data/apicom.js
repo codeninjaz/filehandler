@@ -3,9 +3,9 @@ import TreeActions from '../data/treeactions';
 import Settings    from '../settings.json';
 
 export default {
-  getApiData: function() {
+  getData: function() {
     //get data from API
-    console.info('API: getApiData');
+    console.info('API: getData');
     $.getJSON(Settings.apiUrlBase + 'filedata')
       .done(function(data) {
         TreeActions.gotFiletreeData({

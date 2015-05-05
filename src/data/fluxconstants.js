@@ -10,5 +10,6 @@ module.exports       = {
   EDITMODE           : 'EDITMODE',
   DONEEDITING        : 'DONEEDITING',
   DELETEITEM         : 'DELETEITEM',
-  SHOWINFO           : 'SHOWINFO'
+  SHOWINFO           : 'SHOWINFO',
+  ADDMODE            : 'ADDMODE'
 };

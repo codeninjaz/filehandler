@@ -27,6 +27,8 @@ export default {
     }
   },
   isSelected(item, selectedItem) {
-    return item.id === selectedItem.id;
+    if (selectedItem) {
+      return item.id === selectedItem.id;
+    }
   }
 }
