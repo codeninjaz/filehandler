@@ -7,10 +7,22 @@ export default Flux.createActions({
   gotFiletreeData: function(actionData) {
     return actionData;
   },
-  selectItem: function(file) {
+  selectItem: function(file, multiple) {
+    return {
+      file       : file,
+      multiple   : multiple,
+      actionType : Const.SELECT_ITEM
+    }
+  },
+  deselectItem: function(file) {
     return {
       file      : file,
-      actionType: Const.SELECTED_ITEM
+      actionType: Const.DESELECT_ITEM
+    }
+  },
+  deselectItems: function() {
+    return {
+      actionType: Const.DESELECT_ITEMS
     }
   },
   openFolder: function(item) {

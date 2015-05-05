@@ -22,12 +22,12 @@ export default class FileTools extends React.Component {
       case 'delete':
         e.preventDefault();
         e.stopPropagation();
-        let typeText = 'filen';
-        if (this.props.file.type === 'dir') {
-          typeText = 'katalogen';
+        let infoText = 'filen / katalogen'
+        if (this.props.data.selectedItems.length > 1) {
+          infoText = 'filerna / katalogerna'
         }
-        if (confirm('Vill du verkligen ta bort ' + typeText + ' ' + this.props.file.name)) {
-          Actions.deleteItem(this.props.file);
+        if (confirm('Vill du verkligen ta bort ' + infoText + '?')) {
+          Actions.deleteItem(this.props.data.selectedItems);
         }
       break;
       case 'done':

@@ -26,9 +26,9 @@ export default {
       return Settings.genericFileIcon;
     }
   },
-  isSelected(item, selectedItem) {
-    if (selectedItem) {
-      return item.id === selectedItem.id;
+  isSelected(item, selectedItems) {
+    if (selectedItems) {
+      return _.includes(selectedItems, item.id);
     }
   }
 }

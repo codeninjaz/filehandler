@@ -22,11 +22,28 @@ export default class Fileinfo extends React.Component {
       <InfoBox file={this.props.file}/>
     );
   }
-
+  handleFolderClick(e) {
+    e.stopPropagation();
+    if (!this.props.file.parentId) {
+      return;
+    }
+    if (this.props.file.open) {
+      Actions.closeFolder(this.props.file);
+    } else {
+      Actions.openFolder(this.props.file);
+    }
+  }
+  handleSelect(e) {
+    if (Util.isSelected(this.props.file, this.props.data.selectedItems)) {
+      Actions.deselectItem(this.props.file);
+    } else {
+      Actions.selectItem(this.props.file, e.ctrlKey);
+    }
+  }
   render() {
     let self     = this;
     let file     = this.props.file;
-    let selected = Util.isSelected(file, this.props.data.selectedItem);
+    let selected = Util.isSelected(file, this.props.data.selectedItems);
     let editing  = this.props.data.editItem ? this.props.data.editItem.id === file.id : false;
     let open     = this.props.open;
     let showInfo = this.props.file.showInfo;
@@ -76,8 +93,8 @@ export default class Fileinfo extends React.Component {
     } else {
       return (
         <span style={getStyle()}>
-          <i className={'fa fa-' + getIcon(file)} />
-          <span> {file.name}{getData()}</span>
+          <i className={'fa fa-' + getIcon(file)} onClick = {this.handleFolderClick.bind(this)}/>
+          <span onClick = {this.handleSelect.bind(this)}> {file.name}{getData()}</span>
           {selected ? this.getFileTools(file, {edit: true, delete: true, add:true, info: true}) : null}
           {showInfo ? this.getInfoBox() : null}
         </span>

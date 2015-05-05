@@ -9,25 +9,18 @@ export default class Fileitem extends React.Component {
   constructor(props) {
     super(props);
   }
-  handleClick(e) {
-    e.stopPropagation();
-    Actions.selectItem(this.props.file);
-    if (!this.props.file.parentId) {
-      return;
-    }
-    if (this.props.file.open) {
-      Actions.closeFolder(this.props.file);
-    } else {
-      Actions.openFolder(this.props.file);
-    }
-  }
+
   handleDragOver(e) {
     e.preventDefault();
     e.stopPropagation();
   }
   handleDragStart(info, e) {
     e.stopPropagation();
-    e.dataTransfer.setData('application/json', JSON.stringify(info));
+    if (!Util.isSelected(this.props.file, this.props.data.selectedItems)) {
+      e.preventDefault();
+    }
+    console.log('this.props.data.selectedItems', this.props.data.selectedItems);
+    e.dataTransfer.setData('application/json', JSON.stringify(this.props.data.selectedItems));
   }
   handleDrop(info, e) {
     var keptFiles = [];
@@ -47,10 +40,11 @@ export default class Fileitem extends React.Component {
         }
       });
       API.addFile(keptFiles, skippedFiles, info);
-    } else { //Droppade något annat än filer
+    } else { //Droppade något annat än filer från lokal disk
       e.stopPropagation();
       var movedItem = JSON.parse(e.dataTransfer.getData('application/json'));
       API.moveFile(movedItem, info)
+      Actions.deselectItems();
     }
   }
   getIndent(style) {
@@ -91,7 +85,6 @@ export default class Fileitem extends React.Component {
       <li
         draggable   = {true}
         style       = {divStyle}
-        onClick     = {this.handleClick.bind(this)}
         onDragStart = {this.handleDragStart.bind(this, info)}
         onDragOver  = {this.handleDragOver.bind(this)}
         onDrop      = {this.handleDrop.bind(this, info)}

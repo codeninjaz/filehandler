@@ -3,23 +3,23 @@ import Const from './fluxconstants';
 import _     from 'lodash';
 import UUID  from 'node-uuid';
 
-let Flux         = new McFly();
-let treedata     = [];
-let selectedItem = {};
-let openFolders  = [];
-let editItem     = {};
-let addToItem    = {};
+let Flux          = new McFly();
+let treedata      = [];
+let selectedItems = [];
+let openFolders   = [];
+let editItem      = {};
+let addToItem     = {};
 
 var TreeStore = Flux.createStore(
   {
     getState: function() {
       return {
         data : {
-          treedata     : treedata,
-          status       : status,
-          selectedItem : selectedItem,
-          openFolders  : openFolders,
-          editItem     : editItem
+          treedata      : treedata,
+          status        : status,
+          selectedItems : selectedItems,
+          openFolders   : openFolders,
+          editItem      : editItem
         }
       };
     },
@@ -38,8 +38,23 @@ var TreeStore = Flux.createStore(
         treedata = payload.errormsg;
         TreeStore.emitChange();
       break;
-      case Const.SELECTED_ITEM:
-        selectedItem = payload.file;
+      case Const.SELECT_ITEM:
+        payload.file.selected = true;
+        if (!payload.multiple) {
+          selectedItems = [];
+        }
+        selectedItems.push(payload.file.id);
+        TreeStore.emitChange();
+      break;
+      case Const.DESELECT_ITEM:
+        payload.file.selected = false;
+        _.remove(selectedItems, function(id) {
+          return id === payload.file.id;
+        });
+        TreeStore.emitChange();
+      break;
+      case Const.DESELECT_ITEMS:
+        selectedItems = [];
         TreeStore.emitChange();
       break;
       case Const.FOLDER_OPENED:

@@ -25,7 +25,6 @@ export default class Editbox extends React.Component {
     }
   }
   setFocus() {
-    console.log('this.refs', this.refs);
     let inp = React.findDOMNode(this.refs.nameInput);
     if (inp) {
       inp.focus();
