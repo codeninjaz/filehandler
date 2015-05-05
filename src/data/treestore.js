@@ -4,8 +4,7 @@ import _     from 'lodash';
 import UUID  from 'node-uuid';
 
 let Flux         = new McFly();
-let FileItems    = [];
-let status       = 'Init';
+let treedata     = [];
 let selectedItem = {};
 let openFolders  = [];
 let editItem     = {};
@@ -15,26 +14,28 @@ var TreeStore = Flux.createStore(
   {
     getState: function() {
       return {
-        treedata     : FileItems,
-        status       : status,
-        selectedItem : selectedItem,
-        openFolders  : openFolders,
-        editItem     : editItem
+        data : {
+          treedata     : treedata,
+          status       : status,
+          selectedItem : selectedItem,
+          openFolders  : openFolders,
+          editItem     : editItem
+        }
       };
     },
   },
   function(payload) {
     switch (payload.actionType){
       case Const.GET_FILETREE_DATA:
-        FileItems = payload.data;
+        treedata = payload.data;
         TreeStore.emitChange();
       break;
       case Const.PENDING:
-        FileItems = [];
+        treedata = [];
         TreeStore.emitChange();
       break;
       case Const.ERROR:
-        FileItems = payload.errormsg;
+        treedata = payload.errormsg;
         TreeStore.emitChange();
       break;
       case Const.SELECTED_ITEM:
@@ -54,11 +55,7 @@ var TreeStore = Flux.createStore(
         TreeStore.emitChange();
       break;
       case Const.EDITMODE:
-        if (editItem.length > 0 && editItem.id === payload.item.id) {
-          editItem = {};
-        } else {
-          editItem = payload.item;
-        }
+        editItem = payload.item;
         TreeStore.emitChange();
       break;
       case Const.ADDMODE:

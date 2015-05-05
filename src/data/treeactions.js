@@ -25,7 +25,7 @@ export default Flux.createActions({
       actionType: Const.FOLDER_CLOSED
     }
   },
-  setEditmode(item) {
+  startEditmode(item) {
     return {
       item       : item,
       actionType : Const.EDITMODE

@@ -11,14 +11,14 @@ export default class Fileitem extends React.Component {
   }
   handleClick(e) {
     e.stopPropagation();
-    Actions.selectItem(this.props.info);
-    if (!this.props.info.parentId) {
+    Actions.selectItem(this.props.file);
+    if (!this.props.file.parentId) {
       return;
     }
-    if (this.props.info.open) {
-      Actions.closeFolder(this.props.info);
+    if (this.props.file.open) {
+      Actions.closeFolder(this.props.file);
     } else {
-      Actions.openFolder(this.props.info);
+      Actions.openFolder(this.props.file);
     }
   }
   handleDragOver(e) {
@@ -57,7 +57,7 @@ export default class Fileitem extends React.Component {
     style.paddingLeft = this.props.padding + 'px';
   }
   isOpen() {
-    return _.includes(this.props.openFolders, this.props.info.id);
+    return _.includes(this.props.data.openFolders, this.props.file.id);
   }
   renderChildren(item) {
     //Rendera underliggande barn
@@ -67,12 +67,10 @@ export default class Fileitem extends React.Component {
       _.forEach(item.children, function(child, i) {
         children.push(
           <Fileitem
-            key          = {i}
-            info         = {child}
-            padding      = {15}
-            selectedItem = {self.props.selectedItem}
-            editItem     = {self.props.editItem}
-            openFolders  = {self.props.openFolders}
+            key     = {i}
+            file    = {child}
+            padding = {15}
+            data    = {self.props.data}
           />
         );
       });
@@ -84,9 +82,7 @@ export default class Fileitem extends React.Component {
     );
   }
   render() {
-    let info       = this.props.info;
-    let isSelected = Util.isSelected(info, this.props.selectedItem);
-    let editMode   = this.props.editItem ? this.props.editItem.id === info.id : false;
+    let info       = this.props.file;
     let divStyle   = {
       cursor:'pointer'
     };
@@ -102,10 +98,8 @@ export default class Fileitem extends React.Component {
         >
         {this.getIndent(divStyle)}
         <FileInfo
+          data     = {this.props.data}
           file     = {info}
-          selected = {isSelected}
-          editing  = {editMode}
-          itemKey  = {'itemKey'}
           open     = {open}
         />
         {open ? this.renderChildren(info) : null}

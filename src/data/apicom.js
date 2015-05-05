@@ -32,7 +32,8 @@ export default {
         url    :Settings.apiUrlBase + 'movefile',
         method : 'POST',
         data   : info
-      }).done(function(data) {
+      })
+      .done(function(data) {
         TreeActions.gotFiletreeData({
           data       : data,
           actionType : Const.GET_FILETREE_DATA

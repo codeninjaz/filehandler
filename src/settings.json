@@ -10,6 +10,7 @@
   "folderIcon"            : "folder-o",
   "openFolderIcon"        : "folder-open-o",
   "localStorageName"      : "fileListData",
+  "rootIcon"              : "level-down",
   "fileIcons":[
     {
       "types" :["png", "gif", "jpg"],

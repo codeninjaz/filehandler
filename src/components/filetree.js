@@ -13,8 +13,11 @@ export default class Filetree extends React.Component {
     API.getData();
   }
   getTree() {
+    if (!this.props.data.treedata) {
+      return null;
+    }
     let items = [];
-    let treedata = this.props.treedata;
+    let treedata = this.props.data.treedata;
     let self = this;
     if (self.props.status === Const.ERROR) {
       return (
@@ -27,12 +30,10 @@ export default class Filetree extends React.Component {
       _.forEach(treedata.children, function(item, index) {
         items.push(
             <Fileitem
-              key          = {index}
-              info         = {item}
-              padding      = {0}
-              selectedItem = {self.props.selectedItem}
-              editItem     = {self.props.editItem}
-              openFolders         = {self.props.openFolders}
+              key     = {index}
+              file    = {item}
+              padding = {0}
+              data    = {self.props.data}
             />
           )
       });
@@ -42,11 +43,10 @@ export default class Filetree extends React.Component {
             <div style={{padding:0}}>
               <ul style={{listStyle:'none', padding:0}}>
                 <Fileitem
-                  key          = {'root'}
-                  info         = {treedata}
-                  padding      = {0}
-                  selectedItem = {this.props.selectedItem}
-                  editItem     = {self.props.editItem}
+                  key     = {'root'}
+                  file    = {treedata}
+                  padding = {0}
+                  data    = {self.props.data}
                 />
                 {items}
               </ul>

@@ -9,14 +9,11 @@ import Actions   from '../data/treeactions';
 export default class Fileinfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      file: this.props.file
-    }
   }
 
   getFileTools(file, tools) {
     return (
-      <FileTools file={file} tools={tools} nameInput = {this.refs.nameInput}/>
+      <FileTools file={file} tools={tools} data={this.props.data}/>
     );
   }
 
@@ -26,37 +23,11 @@ export default class Fileinfo extends React.Component {
     );
   }
 
-  handleEdit(e) {
-    let f = this.state.file;
-    f.name = e.target.value;
-    this.setState({
-      file: f
-    })
-  }
-
-  handleKeyPress(e) {
-    if (e.key === 'Enter') {
-      Actions.doneEditing(this.state.file);
-    }
-  }
-
-  setFocus() {
-    if (this.props.editing) {
-      let inp = React.findDOMNode(this.refs.nameInput);
-      if (inp) {
-        inp.focus();
-      }
-    }
-  }
-
-  componentDidUpdate() {
-    this.setFocus();
-  }
-
   render() {
-    let file     = this.state.file;
-    let selected = this.props.selected;
-    let editing  = this.props.editing;
+    let self     = this;
+    let file     = this.props.file;
+    let selected = Util.isSelected(file, this.props.data.selectedItem);
+    let editing  = this.props.data.editItem ? this.props.data.editItem.id === file.id : false;
     let open     = this.props.open;
     let showInfo = this.props.file.showInfo;
 
@@ -88,7 +59,7 @@ export default class Fileinfo extends React.Component {
     if (!file.parentId) {
       return (
         <span style={getStyle()}>
-          <i className={'fa fa-umbrella'} />
+          <i className={'fa fa-' + Settings.rootIcon} />
           <span> rot</span>
           {selected ? this.getFileTools(file, {add:true, info: true}) : null}
           {showInfo ? this.getInfoBox() : null}
@@ -99,12 +70,6 @@ export default class Fileinfo extends React.Component {
       return (
         <span style={getEditStyle()}>
           <i className={'fa fa-' + getIcon(file)} />
-          <input
-            ref='nameInput'
-            type='text'
-            value={file.name}
-            onChange={this.handleEdit.bind(this)}
-            onKeyPress={this.handleKeyPress.bind(this)} />
           {this.getFileTools(file, {done: true})}
         </span>
       )

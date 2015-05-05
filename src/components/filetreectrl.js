@@ -10,13 +10,13 @@ export default class FiletreeCtrl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      treedata:[],
+      data:{},
     }
   }
   componentDidMount() {
     TreeStore.addChangeListener(this.onChange.bind(this));
     TreeActions.gotFiletreeData({
-      data: [],
+      data: {},
       actionType: Const.PENDING
     });
     API.getData();
@@ -26,17 +26,11 @@ export default class FiletreeCtrl extends React.Component {
   }
   onChange() {
     let state = TreeStore.getState();
-    console.log('state', state);
     this.setState(state);
   }
   render() {
     return (
-      <FileTree
-        treedata     = {this.state.treedata}
-        selectedItem = {this.state.selectedItem}
-        openFolders  = {this.state.openFolders}
-        editItem     = {this.state.editItem}
-      />
+      <FileTree data = {this.state.data} />
     );
   }
 }
