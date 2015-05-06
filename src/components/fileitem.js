@@ -1,9 +1,11 @@
 import React    from 'react';
 import Settings from '../settings.json';
-import API      from '../data/apicom';
+import Apicom   from '../data/apicom';
 import Actions  from '../data/treeactions';
 import Util     from '../helpers/util';
 import FileInfo from './fileinfo'
+
+let API = new Apicom();
 
 export default class Fileitem extends React.Component {
   constructor(props) {
@@ -23,6 +25,8 @@ export default class Fileitem extends React.Component {
     e.dataTransfer.setData('application/json', JSON.stringify(this.props.data.selectedItems));
   }
   handleDrop(info, e) {
+    console.log('handleDrop');
+    console.log('info', info);
     var keptFiles = [];
     var skippedFiles = [];
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) { //Droppade filer

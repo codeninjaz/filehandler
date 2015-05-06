@@ -10,15 +10,20 @@ module.exports = {
         'webpack/hot/dev-server',
         './src/app.js'
         ],
-    vendor: ['react']
+    //vendor: ['react']
   },
   //Skapa source maps för js filerna så att dev-tools kan länka till rätt källkod
-  devtool: 'source-map',
+  devtool: 'eval',
   //Lägg saker default i dist mappen, döp rot js till app.js och se till att sökvägar i genererad kod läggs under ./
   output: {
     path: path.resolve('./dist'),
     library: '[name]',
     filename: '[name].js',
+  },
+  externals: {
+    react: 'React',
+    jquery: 'jQuery',
+    lodash: '_'
   },
   //Här ställer man in vilka filtyper webpack ska göra något med. Loaders installeras via npm
   //och används här. T.ex. bildfiler som inkluderas i jsx filerna med require lägger webpack i images
@@ -58,7 +63,7 @@ module.exports = {
   },
   //Ladda plugins till webpack
   plugins: [
-  new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity),
+  //new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
   new webpack.IgnorePlugin(/vertx/),
@@ -66,8 +71,7 @@ module.exports = {
     title: 'Calendar test',
     template: 'src/index.html',
     assets: {
-      'app': 'app.js',
-      'vendor': 'vendor.js'
+      'app': 'app.js'
     }
   })
 ]

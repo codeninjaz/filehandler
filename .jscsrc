@@ -1,7 +1,12 @@
 {
-  "preset": "google",
-  "esnext" : true,
-  "esprima": "esprima-fb",
-  "esprimaOptions" : {"tolerant":false},
-  "maximumLineLength": 120
+  "preset"                           : "google",
+  "esnext"                           : true,
+  "esprima"                          : "esprima-fb",
+  "esprimaOptions"                   : {"tolerant":false},
+  "maximumLineLength"                : 820,
+  "requireSemicolons"                : true,
+  "requireSpaceAfterBinaryOperators" : true,
+  "requireSpaceBeforeObjectValues"   : true,
+  "validateIndentation"              : 2,
+  "validateQuoteMarks"               : "'"
 }

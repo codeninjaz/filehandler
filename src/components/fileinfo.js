@@ -66,12 +66,17 @@ export default class Fileinfo extends React.Component {
           return Settings.folderIcon;
         }
       }
-      return Util.getFileIcon(file)
+      return Util.getFileIcon(file).icon;
     }
     function getStyle() {
       return ({
         fontWeight: selected ? 'bold' : 'normal',
         position: 'relative'
+      });
+    }
+    function getIconStyle(file) {
+      return ({
+        color: Util.getFileIcon(file).color
       });
     }
     function getEditStyle() {
@@ -85,7 +90,7 @@ export default class Fileinfo extends React.Component {
         <span style={getStyle()}>
           <i className={'fa fa-' + Settings.rootIcon} />
           <span onClick = {this.handleSelect.bind(this)}> rot</span>
-          {selected ? this.getFileTools(file, {sadd:true, info: true}) : null}
+          {selected ? this.getFileTools(file, {addlink: true, info: true}) : null}
           {showInfo ? this.getInfoBox() : null}
           {showAddLink ? this.getAddLink() : null}
         </span>
@@ -95,17 +100,17 @@ export default class Fileinfo extends React.Component {
     if (editing) {
       return (
         <span style={getEditStyle()}>
-          <i className={'fa fa-' + getIcon(file)} />
+          <i style={getIconStyle(file)} className={'fa fa-' + getIcon(file)} />
           {this.getFileTools(file, {done: true})}
         </span>
-      )
+      );
     } else {
       //Normalfallet
       return (
         <span style={getStyle()}>
-          <i className={'fa fa-' + getIcon(file)} onClick = {this.handleFolderClick.bind(this)}/>
-          <span onClick = {this.handleSelect.bind(this)}> {file.name}{getData()}</span>
-          {selected ? this.getFileTools(file, {edit: true, delete: true, add: this.props.file.type === 'dir', info: true}) : null}
+          <i style={getIconStyle(file)} className={'fa fa-' + getIcon(file)} onClick = {this.handleFolderClick.bind(this)}/>
+          <span onClick={this.handleSelect.bind(this)}> {file.name}{getData()}</span>
+          {selected ? this.getFileTools(file, {edit: true, delete: true, addlink: this.props.file.type === 'dir', info: true}) : null}
           {showInfo ? this.getInfoBox() : null}
           {showAddLink ? this.getAddLink() : null}
         </span>

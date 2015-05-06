@@ -1,7 +1,7 @@
 {
-  "name": "reactstarter",
+  "name": "filehandler",
   "version": "0.0.1",
-  "description": "Start kit for React, Flux (McFly), React router, React bootstrap and Webpack",
+  "description": "Filhanterare för EPiServer",
   "main": "app.js",
   "scripts": {
     "prod": "webpack -p --output-path ./dist --optimize-minimize -optimize-dedupe",
@@ -12,11 +12,9 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^1.1.4",
-    "lodash": "^3.2.0",
     "mcfly": "0.0.10",
     "node-uuid": "^1.4.2",
-    "pubsub-js": "^1.5.0",
-    "react-bootstrap": "^0.19.0"
+    "pubsub-js": "^1.5.0"
   },
   "devDependencies": {
     "babel-core": "^5.0.12",
@@ -29,9 +27,9 @@
     "image-webpack-loader": "^1.2.0",
     "imagemin": "^3.1.0",
     "json-loader": "^0.5.1",
+    "lodash": "^3.8.0",
     "ncp": "^1.0.1",
     "node-sass": "^3.0.0-beta.4",
-    "react": "^0.13.1",
     "restify": "^3.0.2",
     "sass-loader": "^1.0.0",
     "style-loader": "^0.8.3",

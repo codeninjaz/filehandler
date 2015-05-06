@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"getA",
+				"getAWord"
+			],
+			[
+				"inpu",
+				"inputName"
+			],
+			[
+				"creat",
+				"createButton"
+			],
+			[
+				"link",
+				"linkname"
+			],
+			[
+				"info",
+				"infoText"
+			],
+			[
+				"selete",
+				"selectedItems"
+			],
+			[
+				"selected",
+				"selectedItems"
+			],
+			[
+				"is",
+				"isSelected"
+			],
+			[
+				"name",
+				"nameInput"
+			],
+			[
+				"inp",
+				"inputTag"
+			],
+			[
+				"typ",
+				"typeText"
+			],
+			[
+				"handle",
+				"handleClick"
+			],
+			[
+				"open",
+				"openFolders"
+			],
+			[
+				"local",
+				"localData"
+			],
+			[
 				"sub",
 				"subpixel_antialias"
 			],
@@ -14,10 +70,6 @@
 			[
 				"File",
 				"FileTools"
-			],
-			[
-				"open",
-				"openFolders"
 			],
 			[
 				"chil",
@@ -50,10 +102,6 @@
 			[
 				"dropp",
 				"droppedFiles"
-			],
-			[
-				"handle",
-				"handleDragOver"
 			],
 			[
 				"render",
@@ -90,10 +138,6 @@
 			[
 				"FileI",
 				"FileInfo"
-			],
-			[
-				"info",
-				"infotext"
 			],
 			[
 				"opt",
@@ -172,10 +216,26 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 375.0,
-		"last_filter": "",
+		"height": 63.0,
+		"last_filter": "json",
 		"selected_items":
 		[
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"tra",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"settin",
+				"Preferences: Settings - User"
+			],
+			[
+				"trail",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
 			[
 				"colorp",
 				"Color Picker"
@@ -197,10 +257,6 @@
 				"Set Syntax: HTML"
 			],
 			[
-				"tra",
-				"Trailing Spaces: Delete Trailing Spaces"
-			],
-			[
 				"remo",
 				"Package Control: Remove Package"
 			],
@@ -219,10 +275,6 @@
 			[
 				"guid",
 				"Generate UUID v4"
-			],
-			[
-				"json",
-				"Set Syntax: JSON"
 			],
 			[
 				"up",
@@ -259,10 +311,6 @@
 			[
 				"lint",
 				"Tag: Lint Selection or Document"
-			],
-			[
-				"trail",
-				"Trailing Spaces: Delete Trailing Spaces"
 			],
 			[
 				"wrap",
@@ -389,10 +437,6 @@
 				"Tag: Auto-Format Tags on Document"
 			],
 			[
-				"settin",
-				"Preferences: Settings - Default"
-			],
-			[
 				"prett",
 				"HTMLPrettify"
 			],
@@ -501,40 +545,47 @@
 	},
 	"file_history":
 	[
+		"/C/git/filehandler/test/gen.js",
+		"/C/git/filehandler/src/settings.json",
+		"/C/git/filehandler/src/components/addlink.js",
+		"/C/git/filehandler/src/components/fileitem.js",
+		"/C/git/filehandler/src/components/fileinfo.js",
+		"/C/git/filehandler/src/components/filetools.js",
+		"/C/git/filehandler/src/data/treestore.js",
+		"/C/git/filehandler/src/components/filetreectrl.js",
+		"/C/git/filehandler/webpack.config.js",
+		"/C/git/filehandler/package.json",
+		"/C/git/filehandler/src/index.html",
+		"/C/git/filehandler/src/data/apicom.js",
+		"/C/git/filehandler/.jscsrc",
+		"/C/git/filehandler/src/helpers/util.js",
+		"/C/git/filehandler/dist/vendor.js",
+		"/C/git/filehandler/dist/app.js",
+		"/C/git/filehandler/src/data/treeactions.js",
+		"/C/git/filehandler/src/data/fluxconstants.js",
+		"/C/git/filehandler/src/app.js",
+		"/C/git/filehandler/src/components/filehandler.js",
+		"/C/git/filehandler/src/components/editbox.js",
+		"/C/git/filehandler/src/components/filetree.js",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/git/filehandler/src/components/infobox.js",
+		"/C/git/LooseEnds/Source/WebApi/WebApi.csproj",
+		"/C/git/LooseEnds/.gitignore",
+		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/Prod.sublime-build",
 		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/prod.sublime-build",
 		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
 		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/ColorPicker.sublime-settings",
 		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/ColorPicker/ColorPicker.sublime-settings",
-		"/C/git/filehandler/src/components/filetree.js",
-		"/C/git/filehandler/src/index.html",
 		"/C/git/filehandler/api.js",
-		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/C/git/filehandler/src/components/fileitem.js",
-		"/C/git/filehandler/src/components/fileinfo.js",
-		"/C/git/filehandler/src/components/filetools.js",
-		"/C/git/filehandler/src/data/treestore.js",
 		"/C/git/filehandler/test/filedata.json",
 		"/C/git/filehandler/test/generate.js",
-		"/C/git/filehandler/src/data/treeactions.js",
 		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
-		"/C/git/filehandler/src/settings.json",
-		"/C/git/filehandler/src/data/fluxconstants.js",
-		"/C/git/filehandler/src/data/apicom.js",
-		"/C/git/filehandler/src/components/infobox.js",
-		"/C/git/filehandler/src/components/filetreectrl.js",
-		"/C/git/filehandler/.jscsrc",
-		"/C/git/filehandler/src/components/filehandler.js",
 		"/C/git/filehandler/src/components/droparea.js",
 		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/Base File.sublime-settings",
-		"/C/git/filehandler/test/gen.js",
 		"/C/git/filehandler/test/junkdata.json",
-		"/C/git/filehandler/src/helpers/util.js",
-		"/C/git/filehandler/webpack.config.js",
 		"/C/git/filehandler/.babelrc",
-		"/C/git/filehandler/package.json",
-		"/C/git/filehandler/src/app.js",
 		"/C/Users/ansjob/AppData/Roaming/Sublime Text 3/Packages/User/JSCS-Formatter.sublime-settings",
 		"/C/git/filehandler/srv.js",
 		"/C/git/filehandler/src/helpers/constants.js",
@@ -621,24 +672,18 @@
 		"/C/TFS/Lantmateriet.se/Branches/EPi7Test_lardom/Source/Lantmateriet.se/Styles/_settings.scss",
 		"/C/TFS/InsiktenUtsikten/Branches/Insikten 7.5/Test/InsiktenUtsikten/InsiktenUnitTests/packages.config",
 		"/C/Users/ansjob/Documents/sensorydata_temperature2.json",
-		"/C/inetpub/Log4Net/lmse_SogetiErrorLog.txt",
-		"/C/inetpub/Log4Net/lmse_EPiServerErrorLog.txt",
-		"//epivere1.lmv.lm.se/d$/Websites/LMSE/rewrites.config",
-		"/C/Windows/System32/npm-debug.log",
-		"/C/TFS/Lantmateriet.se/Main/Source/Lantmateriet.se/EPiServerFramework.config",
-		"//epiprde1.lmv.lm.se/d$/Websites/LMSE/connectionStrings.config",
-		"/C/filer.txt",
-		"/C/oldfiles.txt"
+		"/C/inetpub/Log4Net/lmse_SogetiErrorLog.txt"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 32.5
 	},
 	"find_in_files":
 	{
 		"height": 90.0,
 		"where_history":
 		[
+			"C:\\git\\filehandler\\src,*.js",
 			"C:\\git\\filehandler\\src",
 			"*.*",
 			"*.js"
@@ -649,6 +694,70 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"div",
+			"\"type\": \"link",
+			"link",
+			"handleEdit",
+			"st",
+			"p",
+			"file",
+			");\n",
+			"addTool",
+			"add",
+			"},",
+			": function",
+			"$",
+			"DOM",
+			"AddLinkBox",
+			"ADDMODE",
+			"addToItem",
+			"Filehandler",
+			"single",
+			"DESELECT_ITEM",
+			"file",
+			"selectedFiles",
+			"UNSELECT_ITEM",
+			"handleClick",
+			"item",
+			"SELECTE",
+			"SELECTED_ITEM",
+			"SELECT_ITEM",
+			"selectedItem",
+			"TreeStore",
+			"file",
+			"InputBox",
+			"GET_FILETREE_DATA",
+			"doneEditing",
+			"Editmode",
+			"EDITMODE",
+			"FileItems",
+			"Const.EDITMODE",
+			"f",
+			"info",
+			"this.props.info",
+			".data",
+			"=",
+			"font",
+			"focus",
+			"addFile",
+			"console.log",
+			".open",
+			"localStorageName",
+			".open",
+			"openFolders",
+			"getState",
+			"getApiData",
+			"showInfo",
+			"console.log",
+			"showInfo",
+			"SHOWINFO",
+			"showInfo",
+			"parent",
+			"console.log",
+			"editItem",
+			"exe",
+			">..\\packages",
+			"self",
 			"done",
 			"={",
 			"a ",
@@ -712,71 +821,7 @@
 			"                \"name\"  : \"file2.txt\",\n",
 			"\"name\"",
 			"parent",
-			"items",
-			"itemToRemove",
-			"movedItems",
-			"var",
-			"droppade",
-			":",
-			"  :",
-			":",
-			"\"",
-			"foundItems",
-			"findItems",
-			"fn",
-			"\\\\",
-			"\n          ",
-			"item",
-			"GET_FILETREE_DATA",
-			"var",
-			"handleCilck",
-			"Filetree",
-			"div",
-			"fileitems",
-			"Filetree",
-			"getFiletreeData",
-			"inventory",
-			"ADD_TO_CART",
-			"_onChange",
-			"EntityStore",
-			"props.settings",
-			"this.s",
-			":",
-			"dropSettings",
-			",'",
-			"Filehandler",
-			"\\",
-			"displayFiles",
-			"li",
-			"ul",
-			"DnD",
-			"handleDrag",
-			"\n    ",
-			"Filehandler",
-			"_inventory",
-			"-info",
-			"div id",
-			"div",
-			"\\",
-			"vertx",
-			"_inventory",
-			"title",
-			"state",
-			"'",
-			"node",
-			"pubsub",
-			"3000",
-			"8090",
-			"deny",
-			"layer",
-			"\n        ",
-			"layer",
-			"ctx",
-			"namne",
-			"path",
-			"init",
-			":",
-			"'"
+			"items"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -799,7 +844,7 @@
 	},
 	"incremental_find":
 	{
-		"height": 29.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -839,7 +884,7 @@
 	"pinned_build_system": "Packages/User/Prod.sublime-build",
 	"replace":
 	{
-		"height": 66.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -848,6 +893,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"ctrl",
+				"src\\components\\filetreectrl.js"
+			],
+			[
+				"filei",
+				"src\\components\\fileitem.js"
+			],
+			[
+				"filetoo",
+				"src\\components\\filetools.js"
+			],
 			[
 				"actions",
 				"src\\data\\treeactions.js"

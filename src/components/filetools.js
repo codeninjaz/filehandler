@@ -4,6 +4,7 @@ import Settings from '../settings.json';
 import Actions  from '../data/treeactions';
 import EditBox  from './editbox';
 import AddLink  from './addlink';
+import API      from '../data/apicom';
 
 export default class FileTools extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ export default class FileTools extends React.Component {
           infoText = 'filerna / katalogerna'
         }
         if (confirm('Vill du verkligen ta bort ' + infoText + '?')) {
-          Actions.deleteItem(this.props.data.selectedItems);
+          API.deleteFiles(this.props.data.selectedItems);
         }
       break;
       case 'done':
@@ -41,7 +42,7 @@ export default class FileTools extends React.Component {
         e.stopPropagation();
         Actions.showInfo(this.props.file);
       break;
-      case 'add':
+      case 'addlink':
         e.preventDefault();
         e.stopPropagation();
         Actions.addLinkTo(this.props.file);
@@ -49,15 +50,16 @@ export default class FileTools extends React.Component {
     }
   }
 
-  getStyle(st) {
-    if (this.props.file.showInfo) {
-      st.color = '#2E9954'
+  getStyle(style, property) {
+    if (property) {
+      style.color = '#2E9954'
     }
-    return st;
+    return style;
   }
 
   render() {
     let file     = this.state.file;
+    let showAddLink = this.props.data.addLinkTo === file;
     let editTool =
           <i
             className = {'fa fa-' + Settings.toolIcon.edit}
@@ -77,21 +79,21 @@ export default class FileTools extends React.Component {
       ></i>
       </span>
     let infoTool = <i
-          style     = {this.getStyle({paddingLeft:'10px'})}
+          style     = {this.getStyle({paddingLeft:'10px'}, this.props.file.showInfo)}
           className = {'fa fa-' + Settings.toolIcon.info}
           onClick   = {this.handleClick.bind(this, 'info')}
         ></i>
-    let addTool = <i
-          style     = {{paddingLeft:'10px'}}
-          className = {'fa fa-' + Settings.toolIcon.add}
-          onClick   = {this.handleClick.bind(this, 'add')}
+    let addLinkTool = <i
+          style     = {this.getStyle({paddingLeft:'10px'}, showAddLink)}
+          className = {'fa fa-' + Settings.toolIcon.addlink}
+          onClick   = {this.handleClick.bind(this, 'addlink')}
         ></i>
     return (
       <span style={{paddingLeft:'10px'}}>
       {this.props.tools.edit ? editTool : null}
       {this.props.tools.delete ? deleteTool : null}
       {this.props.tools.info ? infoTool : null}
-      {this.props.tools.add ? addTool : null}
+      {this.props.tools.addlink ? addLinkTool : null}
       {this.props.tools.done ? doneTool : null}
       </span>
     )

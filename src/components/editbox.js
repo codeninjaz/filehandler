@@ -1,23 +1,30 @@
 import React    from 'react';
 import Actions  from '../data/treeactions';
+import Util     from '../helpers/util';
 
 export default class Editbox extends React.Component {
   constructor(props) {
     super(props);
+    this.suffix = Util.getExtension(this.props.file.name);
     this.state = {
-      file: this.props.file
-    }
+      file: this.props.file,
+      fileName: Util.removeSuffix(this.props.file.name)
+    };
   }
   handleInputClick(e) {
     e.preventDefault();
     e.stopPropagation();
   }
-  handleEdit(e) {
-    let file  = this.state.file;
-    file.name = e.target.value;
-    this.setState({
-      file: file
-    })
+  handleNameEdit(e) {
+    let st = this.state;
+    st.fileName = e.target.value;
+    st.file.name = st.fileName + '.' + this.suffix;
+    this.setState(st);
+  }
+  handleUrlEdit(e) {
+    let st = this.state;
+    st.file.link = e.target.value;
+    this.setState(st);
   }
   handleKeyPress(e) {
     if (e.key === 'Enter') {
@@ -35,15 +42,37 @@ export default class Editbox extends React.Component {
     this.setFocus();
   }
   render() {
+    let inputName = (
+      <span>
+        <label>Namn: </label>
+        <input
+          ref        = 'nameInput'
+          type       = 'text'
+          value      = {this.state.fileName}
+          onChange   = {this.handleNameEdit.bind(this)}
+          onClick    = {this.handleInputClick.bind(this)}
+          onKeyPress = {this.handleKeyPress.bind(this)}
+        />
+      </span>
+      );
+    let inputLinkUrl = (
+        <span>
+          <label>Länk: </label>
+          <input
+            ref        = 'urlInput'
+            type       = 'text'
+            value      = {this.state.file.link}
+            onChange   = {this.handleUrlEdit.bind(this)}
+            onClick    = {this.handleInputClick.bind(this)}
+            onKeyPress = {this.handleKeyPress.bind(this)}
+          />
+        </span>
+      );
     return (
-      <input
-        ref        = 'nameInput'
-        type       = 'text'
-        value      = {this.state.file.name}
-        onChange   = {this.handleEdit.bind(this)}
-        onClick    = {this.handleInputClick.bind(this)}
-        onKeyPress = {this.handleKeyPress.bind(this)}
-      />
-    )
+      <span>
+        {inputName}
+        {this.props.file.type === 'link' ? inputLinkUrl : null}
+      </span>
+    );
   }
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+var _interopRequireWildcard = function(obj) { return obj && obj.__esModule ? obj : {'default': obj}; };
 
 var _FS = require('fs');
 
@@ -34,7 +34,7 @@ var getDescription = function getDescription() {
   return sentence.join(' ');
 };
 
-var types = ['png', 'gif', 'jpg', 'pdf', 'zip', 'lha', 'gz', '7z', 'avi', 'mwv', 'mp4', 'mov', 'txt', 'js', 'cs', 'html', 'mp3', 'aif', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'];
+var types = ['link', 'png', 'gif', 'jpg', 'pdf', 'zip', 'lha', 'gz', '7z', 'avi', 'mwv', 'mp4', 'mov', 'txt', 'js', 'cs', 'html', 'mp3', 'aif', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'];
 var getAType = function getAType() {
   return types[getRandom(0, types.length - 1)];
 };
@@ -49,6 +49,7 @@ var generateItems = function generateItems(mother) {
       id: _uuid2['default'].v4(),
       parentId: mother.id,
       type: theType,
+      link: 'http://' + getAWord() + '.' + getAWord(),
       size: getRandom(100, 100000),
       children: []
     };
@@ -72,20 +73,20 @@ var root = {
 
 var n = 1;
 generateItems(root);
-_import2['default'].forEach(root.children, function (child) {
+_import2['default'].forEach(root.children, function(child) {
   n += 1;
   generateItems(child);
-  _import2['default'].forEach(child.children, function (child) {
+  _import2['default'].forEach(child.children, function(child) {
     n += 1;
     generateItems(child);
-    _import2['default'].forEach(child.children, function (child) {
+    _import2['default'].forEach(child.children, function(child) {
       n += 1;
       generateItems(child);
     });
   });
 });
 console.log('Genererade ', n);
-_FS2['default'].writeFile(filename, JSON.stringify(root, null, '\t'), function (err) {
+_FS2['default'].writeFile(filename, JSON.stringify(root, null, '\t'), function(err) {
   if (err) {
     throw err;
   }

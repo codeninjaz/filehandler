@@ -3,8 +3,10 @@ import FileTree    from './filetree';
 import Settings    from '../settings.json';
 import TreeStore   from '../data/treestore';
 import TreeActions from '../data/treeactions';
-import API         from '../data/apicom';
+import Apicom      from '../data/apicom';
 import Const       from '../data/fluxconstants';
+
+let API = new Apicom();
 
 export default class FiletreeCtrl extends React.Component {
   constructor(props) {

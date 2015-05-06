@@ -14,54 +14,71 @@
   "fileIcons":[
     {
       "types" :["png", "gif", "jpg"],
-      "icon"  :"file-image-o"
+      "icon"  :"file-image-o",
+      "color" :"#000"
     },
     {
       "types" :["pdf"],
-      "icon"  :"file-pdf-o"
+      "icon"  :"file-pdf-o",
+      "color" :"#FF161A"
     },
     {
       "types" :["zip", "lha", "gz", "7z"],
-      "icon"  :"file-archive-o"
+      "icon"  :"file-archive-o",
+      "color" :"#000"
     },
     {
       "types" :["avi", "mwv", "mp4", "mov"],
-      "icon"  :"file-video-o"
+      "icon"  :"file-video-o",
+      "color" :"#000"
     },
     {
       "types" :["txt"],
-      "icon"  :"file-text-o"
+      "icon"  :"file-text-o",
+      "color" :"#000"
     },
     {
       "types" :["js", "cs", "html"],
-      "icon"  :"file-code-o"
+      "icon"  :"file-code-o",
+      "color" :"#000"
     },
     {
       "types" :["mp3", "aif"],
-      "icon"  :"file-audio-o"
+      "icon"  :"file-audio-o",
+      "color" :"#000"
     },
     {
       "types" :["doc", "docx"],
-      "icon"  :"file-word-o"
+      "icon"  :"file-word-o",
+      "color" :"#143B8E"
     },
     {
       "types" :["xls", "xlsx"],
-      "icon"  :"file-excel-o"
+      "icon"  :"file-excel-o",
+      "color" :"#5E9855"
     },
     {
       "types" :["ppt", "pptx"],
-      "icon"  :"file-powerpoint-o"
+      "icon"  :"file-powerpoint-o",
+      "color" :"#000"
+    },
+    {
+      "types" :["link"],
+      "icon"  :"link",
+      "color" :"#A000B8"
     },
     {
       "types" :["default"],
-      "icon"  :"file-o"
+      "icon"  :"file-o",
+      "color" :"#000"
     }
   ],
   "toolIcon" : {
-    "edit"   : "pencil",
-    "delete" : "trash-o",
-    "done"   : "check",
-    "add"   : "plus-square-o",
-    "info"   : "info-circle"
+    "edit"    : "pencil",
+    "delete"  : "trash-o",
+    "done"    : "check",
+    "addlink" : "link",
+    "info"    : "info-circle",
+    "create"  : "plus-square"
   }
 }
