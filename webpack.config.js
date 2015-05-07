@@ -17,8 +17,8 @@ module.exports = {
   //Lägg saker default i dist mappen, döp rot js till app.js och se till att sökvägar i genererad kod läggs under ./
   output: {
     path: path.resolve('./dist'),
-    library: '[name]',
-    filename: '[name].js',
+    library: 'filehandler',
+    filename: 'filehandler.js',
   },
   externals: {
     react: 'React',

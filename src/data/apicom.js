@@ -4,9 +4,10 @@ import Settings    from '../settings.json';
 import $           from 'jquery';
 
 export default {
-  getData() {
+  getData(id) {
     //get data from API
-    console.info('API: getData');
+    //transmit the id to the API to get the correct tree back
+    console.info('API: getData', id);
     $.getJSON(Settings.apiUrlBase + 'filedata')
       .done(function(data) {
         TreeActions.gotFiletreeData({

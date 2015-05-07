@@ -10,7 +10,7 @@ export default class Filetree extends React.Component {
     super(props);
   }
   updateTree() {
-    API.getData();
+    API.getData(this.props.data.id);
   }
   getTree() {
     if (!this.props.data.treedata) {
