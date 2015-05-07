@@ -13,7 +13,7 @@ module.exports = {
     //vendor: ['react']
   },
   //Skapa source maps för js filerna så att dev-tools kan länka till rätt källkod
-  devtool: 'eval',
+  devtool: 'source-map',
   //Lägg saker default i dist mappen, döp rot js till app.js och se till att sökvägar i genererad kod läggs under ./
   output: {
     path: path.resolve('./dist'),
