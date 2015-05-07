@@ -6,7 +6,7 @@
   "scripts": {
     "prod": "webpack -p --output-path ./dist --optimize-minimize -optimize-dedupe",
     "watch": "webpack -watch --colors",
-    "dev": "node srv.js"
+    "dev": "node server.js"
   },
   "author": "Anders Sjöberg",
   "license": "MIT",

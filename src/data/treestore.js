@@ -3,12 +3,12 @@ import Const from './fluxconstants';
 import _     from 'lodash';
 import UUID  from 'node-uuid';
 
-let Flux          = new McFly();
-let treedata      = [];
-let selectedItems = [];
-let openFolders   = [];
-let editItem      = {};
-let addLinkTo     = {};
+let Flux            = new McFly();
+let treedata        = [];
+let selectedItems   = [];
+let openFolders     = [];
+let editItem        = {};
+let addLinkTo       = {};
 
 var TreeStore = Flux.createStore(
   {

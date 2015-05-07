@@ -1,9 +1,7 @@
 import React    from 'react';
 import Actions  from '../data/treeactions';
 import Settings from '../settings.json';
-import Apicom   from '../data/apicom';
-
-let API = new Apicom();
+import API   from '../data/apicom';
 
 export default class AddLink extends React.Component {
   constructor(props) {
@@ -29,8 +27,8 @@ export default class AddLink extends React.Component {
   render() {
     let createButton = (
       <i
-        style     = {{paddingLeft:'10px'}}
-        className = {'fa fa-' + Settings.toolIcon.create}
+        style     = {{paddingLeft: '10px'}}
+        className = {'fa fa-' + Settings.toolbar.createIcon}
         onClick   = {this.handleDoneClick.bind(this)}
       ></i>
     );

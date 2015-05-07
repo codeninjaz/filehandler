@@ -11,6 +11,19 @@
   "openFolderIcon"        : "folder-open-o",
   "localStorageName"      : "fileListData",
   "rootIcon"              : "level-down",
+  "infobox" : {
+    "class" : "info-box",
+    "style" : {
+      "position"        : "absolute",
+      "top"             : "8px",
+      "left"            : "10px",
+      "backgroundColor" : "#C5DB98",
+      "zIndex"          : 10000,
+      "padding"         : "10px",
+      "border"          : "solid 1px #333",
+      "boxShadow"       : "10px 10px 37px -2px rgba(165, 165, 165, 0.34)"
+    }
+  },
   "fileIcons":[
     {
       "types" :["png", "gif", "jpg"],
@@ -73,12 +86,13 @@
       "color" :"#000"
     }
   ],
-  "toolIcon" : {
-    "edit"    : "pencil",
-    "delete"  : "trash-o",
-    "done"    : "check",
-    "addlink" : "link",
-    "info"    : "info-circle",
-    "create"  : "plus-square"
+  "toolbar" : {
+    "editIcon"          : "pencil",
+    "deleteIcon"        : "trash-o",
+    "doneIcon"          : "check",
+    "addLinkIcon"       : "link",
+    "infoIcon"          : "info-circle",
+    "createIcon"        : "plus-square",
+    "buttonOnColor" : "#7DB61A"
   }
 }

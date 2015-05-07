@@ -18,7 +18,11 @@ export default class Editbox extends React.Component {
   handleNameEdit(e) {
     let st = this.state;
     st.fileName = e.target.value;
-    st.file.name = st.fileName + '.' + this.suffix;
+    if (this.props.file.type === 'dir') {
+      st.file.name = st.fileName;
+    }else {
+      st.file.name = st.fileName + '.' + this.suffix;
+    }
     this.setState(st);
   }
   handleUrlEdit(e) {
@@ -28,7 +32,8 @@ export default class Editbox extends React.Component {
   }
   handleKeyPress(e) {
     if (e.key === 'Enter') {
-      Actions.doneEditing(this.state.file);
+      //Actions.doneEditing(this.state.file);
+      
     }
   }
   setFocus() {

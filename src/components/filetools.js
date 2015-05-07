@@ -52,7 +52,7 @@ export default class FileTools extends React.Component {
 
   getStyle(style, property) {
     if (property) {
-      style.color = '#2E9954'
+      style.color = Settings.toolbar.buttonOnColor
     }
     return style;
   }
@@ -62,34 +62,34 @@ export default class FileTools extends React.Component {
     let showAddLink = this.props.data.addLinkTo === file;
     let editTool =
           <i
-            className = {'fa fa-' + Settings.toolIcon.edit}
+            className = {'fa fa-' + Settings.toolbar.editIcon}
             onClick   = {this.handleClick.bind(this, 'edit')}
           ></i>
     let deleteTool = <i
-          style     = {{paddingLeft:'10px'}}
-          className = {'fa fa-' + Settings.toolIcon.delete}
+          style     = {{paddingLeft: '10px'}}
+          className = {'fa fa-' + Settings.toolbar.deleteIcon}
           onClick   = {this.handleClick.bind(this, 'delete')}
         ></i>
     let doneTool = <span>
       <EditBox file = {file} />
       <i
-          style     = {{paddingLeft:'10px'}}
-          className = {'fa fa-' + Settings.toolIcon.done}
+          style     = {{paddingLeft: '10px'}}
+          className = {'fa fa-' + Settings.toolbar.doneIcon}
           onClick   = {this.handleClick.bind(this, 'done')}
       ></i>
       </span>
     let infoTool = <i
-          style     = {this.getStyle({paddingLeft:'10px'}, this.props.file.showInfo)}
-          className = {'fa fa-' + Settings.toolIcon.info}
+          style     = {this.getStyle({paddingLeft: '10px'}, this.props.file.showInfo)}
+          className = {'fa fa-' + Settings.toolbar.infoIcon}
           onClick   = {this.handleClick.bind(this, 'info')}
         ></i>
     let addLinkTool = <i
-          style     = {this.getStyle({paddingLeft:'10px'}, showAddLink)}
-          className = {'fa fa-' + Settings.toolIcon.addlink}
+          style     = {this.getStyle({paddingLeft: '10px'}, showAddLink)}
+          className = {'fa fa-' + Settings.toolbar.addLinkIcon}
           onClick   = {this.handleClick.bind(this, 'addlink')}
         ></i>
     return (
-      <span style={{paddingLeft:'10px'}}>
+      <span style={{marginLeft: '10px', paddingLeft: '3px', paddingRight: '3px', border: 'solid 1px #ddd'}}>
       {this.props.tools.edit ? editTool : null}
       {this.props.tools.delete ? deleteTool : null}
       {this.props.tools.info ? infoTool : null}

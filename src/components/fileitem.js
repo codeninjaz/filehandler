@@ -1,15 +1,16 @@
 import React    from 'react';
 import Settings from '../settings.json';
-import Apicom   from '../data/apicom';
+import API      from '../data/apicom';
 import Actions  from '../data/treeactions';
 import Util     from '../helpers/util';
 import FileInfo from './fileinfo'
 
-let API = new Apicom();
-
 export default class Fileitem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      toolsVisible: false
+    }
   }
 
   handleDragOver(e) {
@@ -29,7 +30,7 @@ export default class Fileitem extends React.Component {
     console.log('info', info);
     var keptFiles = [];
     var skippedFiles = [];
-    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) { //Droppade filer
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) { //Droppade filer från lokal dator
       e.preventDefault();
       e.stopPropagation();
       _.each(e.dataTransfer.files, function(file) {
@@ -74,7 +75,7 @@ export default class Fileitem extends React.Component {
       });
     }
     return (
-      <ul style={{listStyle:'none', padding:0}}>
+      <ul style={{listStyle: 'none', padding: 0}}>
         {children}
       </ul>
     );
@@ -82,22 +83,23 @@ export default class Fileitem extends React.Component {
   render() {
     let info       = this.props.file;
     let divStyle   = {
-      cursor:'pointer'
+      cursor: 'pointer'
     };
     let open = this.isOpen();
     return (
       <li
-        draggable   = {true}
-        style       = {divStyle}
-        onDragStart = {this.handleDragStart.bind(this, info)}
-        onDragOver  = {this.handleDragOver.bind(this)}
-        onDrop      = {this.handleDrop.bind(this, info)}
+        draggable    = {true}
+        style        = {divStyle}
+        onDragStart  = {this.handleDragStart.bind(this, info)}
+        onDragOver   = {this.handleDragOver.bind(this)}
+        onDrop       = {this.handleDrop.bind(this, info)}
         >
         {this.getIndent(divStyle)}
         <FileInfo
-          data     = {this.props.data}
-          file     = {info}
-          open     = {open}
+          data         = {this.props.data}
+          file         = {info}
+          open         = {open}
+          toolsVisible = {this.state.toolsVisible}
         />
         {open ? this.renderChildren(info) : null}
       </li>

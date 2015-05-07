@@ -46,6 +46,9 @@ export default class Fileinfo extends React.Component {
       Actions.selectItem(this.props.file, e.ctrlKey);
     }
   }
+  openLink(e) {
+    window.open(this.props.file.link, '_blank');
+  }
   render() {
     let self        = this;
     let file        = this.props.file;
@@ -68,26 +71,17 @@ export default class Fileinfo extends React.Component {
       }
       return Util.getFileIcon(file).icon;
     }
-    function getStyle() {
-      return ({
+    let spanStyle = {
         fontWeight: selected ? 'bold' : 'normal',
         position: 'relative'
-      });
-    }
-    function getIconStyle(file) {
-      return ({
-        color: Util.getFileIcon(file).color
-      });
-    }
-    function getEditStyle() {
-      return ({
-        position: 'relative'
-      });
+      }
+    let iconStyle = {
+      color: Util.getFileIcon(file).color
     }
     //Om detta är rotnoden
     if (!file.parentId) {
       return (
-        <span style={getStyle()}>
+        <span style={spanStyle}>
           <i className={'fa fa-' + Settings.rootIcon} />
           <span onClick = {this.handleSelect.bind(this)}> rot</span>
           {selected ? this.getFileTools(file, {addlink: true, info: true}) : null}
@@ -99,17 +93,17 @@ export default class Fileinfo extends React.Component {
     //Om vi är i redigeringsläge
     if (editing) {
       return (
-        <span style={getEditStyle()}>
-          <i style={getIconStyle(file)} className={'fa fa-' + getIcon(file)} />
+        <span style={{position: 'relative'}}>
+          <i style={iconStyle} className={'fa fa-' + getIcon(file)} />
           {this.getFileTools(file, {done: true})}
         </span>
       );
     } else {
       //Normalfallet
       return (
-        <span style={getStyle()}>
-          <i style={getIconStyle(file)} className={'fa fa-' + getIcon(file)} onClick = {this.handleFolderClick.bind(this)}/>
-          <span onClick={this.handleSelect.bind(this)}> {file.name}{getData()}</span>
+        <span style={spanStyle}>
+          <i style={iconStyle} className={'fa fa-' + getIcon(file)} onClick = {this.handleFolderClick.bind(this)}/>
+          <span onClick={this.handleSelect.bind(this)} onDoubleClick={this.props.file.type !== 'dir' ? this.openLink.bind(this) : null}> {file.name}{getData()}</span>
           {selected ? this.getFileTools(file, {edit: true, delete: true, addlink: this.props.file.type === 'dir', info: true}) : null}
           {showInfo ? this.getInfoBox() : null}
           {showAddLink ? this.getAddLink() : null}

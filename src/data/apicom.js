@@ -3,7 +3,7 @@ import TreeActions from '../data/treeactions';
 import Settings    from '../settings.json';
 import $           from 'jquery';
 
-export default class API {
+export default {
   getData() {
     //get data from API
     console.info('API: getData');
@@ -20,7 +20,7 @@ export default class API {
           actionType   : Const.ERROR
         });
       });
-  }
+  },
   moveFile(file, target) {
     console.info('API: moveFile');
     console.log('file', file);
@@ -46,7 +46,7 @@ export default class API {
           actionType   : Const.ERROR
         });
       });
-  }
+  },
   addFile(addedFiles, skippedFiles, target) {
     console.info('API: addFile');
     console.log('addedFiles', addedFiles);
@@ -73,19 +73,24 @@ export default class API {
           actionType   : Const.ERROR
         });
       });
-  }
+  },
   createFolder(name, target) {
     //TODO: När man får svar tillbaka så ska den nya mappen sättas som "open", och även dess föräldrar
     //den nya kan också sättas som "selected" för att markera den
     console.log('API: createFolder');
     console.log('name', name);
-  }
+  },
   createLink(name, url, target) {
     console.log('API: createLink');
     console.log('name', name);
     console.log('url', url);
     console.log('target', target);
-  }
+  },
+  renameFile(file, name) {
+    console.info('API: renameFile');
+    console.log('file', file);
+    console.log('name', name);
+  },
   deleteFiles(files) {
     console.info('API: deleteFile');
     console.log('file', files);

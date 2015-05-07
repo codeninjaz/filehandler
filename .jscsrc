@@ -4,7 +4,6 @@
   "esprima"                          : "esprima-fb",
   "esprimaOptions"                   : {"tolerant":false},
   "maximumLineLength"                : 820,
-  "requireSemicolons"                : true,
   "requireSpaceAfterBinaryOperators" : true,
   "requireSpaceBeforeObjectValues"   : true,
   "validateIndentation"              : 2,

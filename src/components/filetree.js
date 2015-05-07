@@ -40,8 +40,8 @@ export default class Filetree extends React.Component {
       <InfoBox file={self.props.selectedItem} />
       return (
           <div>
-            <div style={{padding:0}}>
-              <ul style={{listStyle:'none', padding:0}}>
+            <div style={{padding: 0}}>
+              <ul style={{listStyle: 'none', padding: 0}}>
                 <Fileitem
                   key     = {'root'}
                   file    = {treedata}

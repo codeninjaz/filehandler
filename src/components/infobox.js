@@ -1,23 +1,11 @@
-import React from 'react';
-import Util  from '../helpers/util';
+import React    from 'react';
+import Util     from '../helpers/util';
 import Actions  from '../data/treeactions';
+import Settings from '../settings.json';
 
 export default class Droparea extends React.Component {
-
   constructor(props) {
     super(props);
-    this.style = {
-        position        : 'absolute',
-        top             : '0px',
-        left            : '10px',
-        backgroundColor : '#CCC',
-        zIndex          : 10000,
-        padding         : '10px',
-        border          : 'solid 1px #333',
-        boxShadow       : '10px 10px 37px -2px rgba(165, 165, 165, 0.34)',
-        opacity         : 0,
-        transition      : 'all 1s'
-      };
     this.state = {
       info: ''
     };
@@ -27,25 +15,34 @@ export default class Droparea extends React.Component {
     e.stopPropagation();
     Actions.showInfo(this.props.file);
   }
+  openLink(e) {
+    window.open(this.props.file.link, '_blank');
+  }
   render() {
-    let self = this;
-    let file = this.props.file;
-    let fileName = <span style={{fontWeight: 'bold'}}>{file.name}</span>;
-    let linkUrl = <span style={{fontWeight: 'bold'}}>{file.link}</span>;
-    let fileSize = <span>{[Util.toOneDecimal(file.size / 1024) + 'KiB']}</span>;
-    if (file.parentId) {
+    let file     = this.props.file;
+    let fileName = <div style={{fontWeight: 'bold'}}>{file.name}</div>;
+    let linkUrl  = <div style={{fontWeight: 'bold'}} onClick={this.openLink.bind(this)}>{file.link}</div>;
+    let fileSize = <div>{[Util.toOneDecimal(file.size / 1024) + 'KiB']}</div>;
+    function getStyle() {
+      return Settings.infobox.class ? null : Settings.infobox.style;
+    }
+    function getClass() {
+      return Settings.infobox.class ? Settings.infobox.class : null;
+    }
+    console.log('file.parentId', file.parentId);
+    if (file.id === 1) { //Rotsidan
       return (
-        <div style={self.style} onClick={self.handleClick.bind(self)}>
-          {fileName}<br/>
-          {this.props.file.type === 'link' ? linkUrl : null}<br />
-          {fileSize}
+        <div style={getStyle()} className={getClass()} onClick={this.handleClick.bind(this)}>
+          <div style={{fontWeight: 'bold'}}>Rot</div>
+          <div>{file.children.length} undersidor</div>
         </div>
       );
-    } else {
+    } else { //Alla andra
       return (
-        <div style={self.style} onClick={self.handleClick.bind(self)}>
-          <span style={{fontWeight: 'bold'}}>Rot</span><br/>
-          <span>{file.children.length} undersidor</span>
+        <div style={getStyle()} className={getClass()} onClick={this.handleClick.bind(this)}>
+          {fileName}
+          {this.props.file.type === 'link' ? linkUrl : null}
+          {fileSize}
         </div>
       );
     }
