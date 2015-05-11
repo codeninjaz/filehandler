@@ -1,6 +1,5 @@
 import React    from 'react';
 import Const    from '../data/fluxconstants';
-import API      from '../data/apicom';
 import Fileitem from './fileitem';
 import InfoBox  from './infobox';
 import _        from 'lodash';
@@ -10,7 +9,7 @@ export default class Filetree extends React.Component {
     super(props);
   }
   updateTree() {
-    API.getData(this.props.data.id);
+    this.props.api.getData(this.props.data.id);
   }
   getTree() {
     if (!this.props.data.treedata) {
@@ -34,6 +33,7 @@ export default class Filetree extends React.Component {
               file    = {item}
               padding = {0}
               data    = {self.props.data}
+              api     = {self.props.api}
             />
           )
       });
@@ -47,6 +47,7 @@ export default class Filetree extends React.Component {
                   file    = {treedata}
                   padding = {0}
                   data    = {self.props.data}
+                  api     = {self.props.api}
                 />
                 {items}
               </ul>

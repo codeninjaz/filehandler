@@ -1,6 +1,5 @@
 import React    from 'react';
 import Settings from '../settings.json';
-import API      from '../data/apicom';
 import Actions  from '../data/treeactions';
 import Util     from '../helpers/util';
 import FileInfo from './fileinfo'
@@ -41,11 +40,12 @@ export default class Fileitem extends React.Component {
           keptFiles.push(file);
         }
       });
-      API.addFile(keptFiles, skippedFiles, info);
+      this.props.api.addFile(keptFiles, skippedFiles, info);
     } else { //Droppade något annat än filer från lokal disk
       e.stopPropagation();
       var movedItem = JSON.parse(e.dataTransfer.getData('application/json'));
-      API.moveFile(movedItem, info)
+      console.log('this.props.api', this.props.api);
+      this.props.api.moveFile(movedItem, info)
       Actions.deselectItems(this.props.data);
     }
   }
@@ -64,6 +64,7 @@ export default class Fileitem extends React.Component {
             file    = {child}
             padding = {15}
             data    = {self.props.data}
+            api     = {self.props.api}
           />
         );
       });
