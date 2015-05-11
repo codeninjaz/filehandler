@@ -7,45 +7,52 @@ export default Flux.createActions({
   gotFiletreeData: function(actionData) {
     return actionData;
   },
-  selectItem: function(file, multiple) {
+  selectItem: function(file, data, multiple) {
     return {
       file       : file,
+      id         : data.id,
       multiple   : multiple,
       actionType : Const.SELECT_ITEM
     }
   },
-  deselectItem: function(file) {
+  deselectItem: function(file, data) {
     return {
       file      : file,
+      id         : data.id,
       actionType: Const.DESELECT_ITEM
     }
   },
-  deselectItems: function() {
+  deselectItems: function(data) {
     return {
+      id         : data.id,
       actionType: Const.DESELECT_ITEMS
     }
   },
-  openFolder: function(item) {
-    return {
-      item        : item,
-      actionType: Const.FOLDER_OPENED
-    }
-  },
-  closeFolder: function(item) {
-    return {
-      item        : item,
-      actionType: Const.FOLDER_CLOSED
-    }
-  },
-  startEditmode(item) {
+  openFolder: function(item, data) {
     return {
       item       : item,
+      id         : data.id,
+      actionType : Const.FOLDER_OPENED
+    }
+  },
+  closeFolder: function(item, data) {
+    return {
+      item       : item,
+      id         : data.id,
+      actionType : Const.FOLDER_CLOSED
+    }
+  },
+  startEditmode(item, data) {
+    return {
+      item       : item,
+      id         : data.id,
       actionType : Const.EDITMODE
     }
   },
-  addLinkTo(item) {
+  addLinkTo(item, data) {
     return {
       item       : item,
+      id         : data.id,
       actionType : Const.ADDLINKTO
     }
   },
@@ -55,15 +62,17 @@ export default Flux.createActions({
       actionType : Const.DELETEITEM
     }
   },
-  showInfo(item) {
+  showInfo(item, data) {
     return {
       item       : item,
+      id         : data.id,
       actionType : Const.SHOWINFO
     }
   },
-  doneEditing(item) {
+  doneEditing(item, data) {
     return {
       item       : item,
+      id         : data.id,
       actionType : Const.DONEEDITING
     }
   }

@@ -32,16 +32,27 @@ export default {
       };
     }
   },
-  isSelected(item, selectedItems) {
-    if (selectedItems) {
-      return _.includes(selectedItems, item.id);
+  isSelected(item, data) {
+    if (data.selectedItems) {
+      return _.includes(data.selectedItems, item.id);
+    }
+  },
+  isOpen(item, data) {
+    if (data.openFolders) {
+      return _.includes(data.openFolders, item.id);
+    }
+  },
+  isShowingInfo(item, data) {
+    if (data.showingInfo) {
+      return data.showingInfo === item.id;
+    }
+  },
+  isAddingLink(item, data) {
+    if (data.addLinkTo) {
+      return data.addLinkTo.id === item.id;
     }
   },
   removeSuffix(filename) {
     return filename.replace(/[.](.*)/img, '');
   }
-  // getPath(tree, file){
-  //   while(file.parentId!==''){
-  //   }
-  // }
 }

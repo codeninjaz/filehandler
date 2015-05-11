@@ -32,8 +32,7 @@ export default class Editbox extends React.Component {
   }
   handleKeyPress(e) {
     if (e.key === 'Enter') {
-      //Actions.doneEditing(this.state.file);
-      
+      Actions.doneEditing(this.state.file, this.props.data);
     }
   }
   setFocus() {

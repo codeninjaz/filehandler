@@ -19,7 +19,7 @@ export default class FileTools extends React.Component {
       case 'edit':
         e.preventDefault();
         e.stopPropagation();
-        Actions.startEditmode(this.props.file);
+        Actions.startEditmode(this.props.file, this.props.data);
       break;
       case 'delete':
         e.preventDefault();
@@ -35,17 +35,17 @@ export default class FileTools extends React.Component {
       case 'done':
         e.preventDefault();
         e.stopPropagation();
-        Actions.doneEditing(this.props.file);
+        Actions.doneEditing(this.props.file, this.props.data);
       break;
       case 'info':
         e.preventDefault();
         e.stopPropagation();
-        Actions.showInfo(this.props.file);
+        Actions.showInfo(this.props.file, this.props.data);
       break;
       case 'addlink':
         e.preventDefault();
         e.stopPropagation();
-        Actions.addLinkTo(this.props.file);
+        Actions.addLinkTo(this.props.file, this.props.data);
       break;
     }
   }
@@ -59,7 +59,7 @@ export default class FileTools extends React.Component {
 
   render() {
     let file     = this.state.file;
-    let showAddLink = this.props.data.addLinkTo === file;
+    let data     = this.props.data;
     let editTool =
           <i
             className = {'fa fa-' + Settings.toolbar.editIcon}
@@ -71,7 +71,7 @@ export default class FileTools extends React.Component {
           onClick   = {this.handleClick.bind(this, 'delete')}
         ></i>
     let doneTool = <span>
-      <EditBox file = {file} />
+      <EditBox file={file} data={data} />
       <i
           style     = {{paddingLeft: '10px'}}
           className = {'fa fa-' + Settings.toolbar.doneIcon}
@@ -79,12 +79,12 @@ export default class FileTools extends React.Component {
       ></i>
       </span>
     let infoTool = <i
-          style     = {this.getStyle({paddingLeft: '10px'}, this.props.file.showInfo)}
+          style     = {this.getStyle({paddingLeft: '10px'}, Util.isShowingInfo(this.props.file, this.props.data))}
           className = {'fa fa-' + Settings.toolbar.infoIcon}
           onClick   = {this.handleClick.bind(this, 'info')}
         ></i>
     let addLinkTool = <i
-          style     = {this.getStyle({paddingLeft: '10px'}, showAddLink)}
+          style     = {this.getStyle({paddingLeft: '10px'}, Util.isAddingLink(this.props.file, this.props.data))}
           className = {'fa fa-' + Settings.toolbar.addLinkIcon}
           onClick   = {this.handleClick.bind(this, 'addlink')}
         ></i>

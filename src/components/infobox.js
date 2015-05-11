@@ -13,7 +13,7 @@ export default class Droparea extends React.Component {
   handleClick(e) {
     e.preventDefault();
     e.stopPropagation();
-    Actions.showInfo(this.props.file);
+    Actions.showInfo(this.props.file, this.props.data);
   }
   openLink(e) {
     window.open(this.props.file.link, '_blank');
@@ -29,7 +29,6 @@ export default class Droparea extends React.Component {
     function getClass() {
       return Settings.infobox.class ? Settings.infobox.class : null;
     }
-    console.log('file.parentId', file.parentId);
     if (file.id === 1) { //Rotsidan
       return (
         <div style={getStyle()} className={getClass()} onClick={this.handleClick.bind(this)}>

@@ -6,92 +6,99 @@ import UUID  from 'node-uuid';
 let Flux          = new McFly();
 
 export default class FileHandlerStore {
-  constructor() {
-  }
-  GetTreeStore(id) {
-    console.log('GetTreeStore');
-    let treedata      = [];
-    let selectedItems = [];
-    let openFolders   = [];
-    let editItem      = {};
-    let addLinkTo     = {};
+  GetTreeStore() {
     let TreeStore = Flux.createStore(
       {
-        myId: id,
+        storeState: {
+          treedata      : [],
+          selectedItems : [],
+          openFolders   : [],
+          editItem      : {},
+          addLinkTo     : {},
+          showingInfo   : -1
+        },
         getState: function() {
           return {
             data : {
-              treedata      : treedata,
-              status        : status,
-              selectedItems : selectedItems,
-              openFolders   : openFolders,
-              editItem      : editItem,
-              addLinkTo     : addLinkTo,
-              id            : id
+              treedata      : TreeStore.storeState.treedata,
+              selectedItems : TreeStore.storeState.selectedItems,
+              openFolders   : TreeStore.storeState.openFolders,
+              editItem      : TreeStore.storeState.editItem,
+              addLinkTo     : TreeStore.storeState.addLinkTo,
+              showingInfo   : TreeStore.storeState.showingInfo,
+              id            : this.dispatcherID
             }
           };
         },
       },
       function(payload) {
+        let myStoreState = TreeStore.storeState
         switch (payload.actionType){
           case Const.GET_FILETREE_DATA:
-            treedata = payload.data;
-            console.log('payload', payload);
+            myStoreState.treedata = payload.data;
             TreeStore.emitChange();
           break;
           case Const.PENDING:
-            treedata = [];
+            myStoreState.treedata = [];
             TreeStore.emitChange();
           break;
           case Const.ERROR:
-            treedata = payload.errormsg;
+            myStoreState.treedata = payload.errormsg;
             TreeStore.emitChange();
           break;
           case Const.SELECT_ITEM:
-            payload.file.selected = true;
-            if (!payload.multiple) {
-              selectedItems = [];
+            if (TreeStore.dispatcherID === payload.id) {
+              if (!payload.multiple) {
+                myStoreState.selectedItems = [];
+              }
+              myStoreState.selectedItems.push(payload.file.id);
+              TreeStore.emitChange();
             }
-            selectedItems.push(payload.file.id);
-            TreeStore.emitChange();
           break;
           case Const.DESELECT_ITEM:
-            payload.file.selected = false;
-            _.remove(selectedItems, function(id) {
-              return id === payload.file.id;
-            });
-            TreeStore.emitChange();
+            if (TreeStore.dispatcherID === payload.id) {
+              _.remove(myStoreState.selectedItems, function(id) {
+                return id === payload.file.id;
+              });
+              TreeStore.emitChange();
+            }
           break;
           case Const.DESELECT_ITEMS:
-            selectedItems = [];
+            myStoreState.selectedItems = [];
             TreeStore.emitChange();
           break;
           case Const.FOLDER_OPENED:
-            payload.item.open = true;
-            openFolders.push(payload.item.id);
-            TreeStore.emitChange();
+            if (TreeStore.dispatcherID === payload.id) {
+              myStoreState.openFolders.push(payload.item.id);
+              TreeStore.emitChange();
+            }
           break;
           case Const.FOLDER_CLOSED:
-            payload.item.open = false;
-            _.remove(openFolders, function(id) {
-              return id === payload.item.id;
-            });
-            TreeStore.emitChange();
+            if (TreeStore.dispatcherID === payload.id) {
+              _.remove(myStoreState.openFolders, function(id) {
+                return id === payload.item.id;
+              });
+              TreeStore.emitChange();
+            }
           break;
           case Const.EDITMODE:
-            editItem = payload.item;
-            TreeStore.emitChange();
+            if (TreeStore.dispatcherID === payload.id) {
+              myStoreState.editItem = payload.item;
+              TreeStore.emitChange();
+            }
           break;
           case Const.ADDLINKTO:
-            if (addLinkTo === payload.item) {
-              addLinkTo = {};
-            } else {
-              addLinkTo = payload.item;
+            if (TreeStore.dispatcherID === payload.id) {
+              if (myStoreState.addLinkTo === payload.item) {
+                myStoreState.addLinkTo = {};
+              } else {
+                myStoreState.addLinkTo = payload.item;
+              }
+              TreeStore.emitChange();
             }
-            TreeStore.emitChange();
           break;
           case Const.DONEEDITING:
-            editItem = {};
+            myStoreState.editItem = {};
             TreeStore.emitChange();
           break;
           case Const.DELETEITEM:
@@ -99,18 +106,18 @@ export default class FileHandlerStore {
             TreeStore.emitChange();
           break;
           case Const.SHOWINFO:
-            if (payload.item.showInfo) {
-              payload.item.showInfo = false;
-            } else {
-              payload.item.showInfo = true;
+            if (TreeStore.dispatcherID === payload.id) {
+              if (myStoreState.showingInfo === payload.item.id) {
+                myStoreState.showingInfo = -1;
+              } else {
+                myStoreState.showingInfo = payload.item.id;
+              }
+              TreeStore.emitChange();
             }
-            TreeStore.emitChange();
           break;
         }
       }
     );
-
-    console.log('Flux', Flux);
 
     return TreeStore;
   }

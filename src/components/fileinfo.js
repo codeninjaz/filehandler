@@ -20,7 +20,7 @@ export default class Fileinfo extends React.Component {
 
   getInfoBox() {
     return (
-      <InfoBox file={this.props.file}/>
+      <InfoBox file={this.props.file} data={this.props.data}/>
     );
   }
   getAddLink() {
@@ -33,17 +33,17 @@ export default class Fileinfo extends React.Component {
     if (!this.props.file.parentId) {
       return;
     }
-    if (this.props.file.open) {
-      Actions.closeFolder(this.props.file);
+    if (Util.isOpen(this.props.file, this.props.data)) {
+      Actions.closeFolder(this.props.file, this.props.data);
     } else {
-      Actions.openFolder(this.props.file);
+      Actions.openFolder(this.props.file, this.props.data);
     }
   }
   handleSelect(e) {
-    if (Util.isSelected(this.props.file, this.props.data.selectedItems)) {
-      Actions.deselectItem(this.props.file);
+    if (Util.isSelected(this.props.file, this.props.data)) {
+      Actions.deselectItem(this.props.file, this.props.data);
     } else {
-      Actions.selectItem(this.props.file, e.ctrlKey);
+      Actions.selectItem(this.props.file, this.props.data, e.ctrlKey);
     }
   }
   openLink(e) {
@@ -52,10 +52,10 @@ export default class Fileinfo extends React.Component {
   render() {
     let self        = this;
     let file        = this.props.file;
-    let selected    = Util.isSelected(file, this.props.data.selectedItems);
+    let selected    = Util.isSelected(file, this.props.data);
     let editing     = this.props.data.editItem ? this.props.data.editItem.id === file.id : false;
     let open        = this.props.open;
-    let showInfo    = this.props.file.showInfo;
+    let showInfo    = Util.isShowingInfo(this.props.file, this.props.data);
     let showAddLink = this.props.data.addLinkTo === this.props.file;
 
     function getData() {

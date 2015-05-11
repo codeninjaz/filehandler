@@ -19,15 +19,12 @@ export default class Fileitem extends React.Component {
   }
   handleDragStart(info, e) {
     e.stopPropagation();
-    if (!Util.isSelected(this.props.file, this.props.data.selectedItems)) {
+    if (!Util.isSelected(this.props.file, this.props.data)) {
       e.preventDefault();
     }
-    console.log('this.props.data.selectedItems', this.props.data.selectedItems);
     e.dataTransfer.setData('application/json', JSON.stringify(this.props.data.selectedItems));
   }
   handleDrop(info, e) {
-    console.log('handleDrop');
-    console.log('info', info);
     var keptFiles = [];
     var skippedFiles = [];
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) { //Droppade filer från lokal dator
@@ -49,14 +46,11 @@ export default class Fileitem extends React.Component {
       e.stopPropagation();
       var movedItem = JSON.parse(e.dataTransfer.getData('application/json'));
       API.moveFile(movedItem, info)
-      Actions.deselectItems();
+      Actions.deselectItems(this.props.data);
     }
   }
   getIndent(style) {
     style.paddingLeft = this.props.padding + 'px';
-  }
-  isOpen() {
-    return _.includes(this.props.data.openFolders, this.props.file.id);
   }
   renderChildren(item) {
     //Rendera underliggande barn
@@ -85,7 +79,7 @@ export default class Fileitem extends React.Component {
     let divStyle   = {
       cursor: 'pointer'
     };
-    let open = this.isOpen();
+    let open = Util.isOpen(info, this.props.data);
     return (
       <li
         draggable    = {true}
